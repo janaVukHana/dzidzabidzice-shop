@@ -1,0 +1,24 @@
+.Hero {
+    position: relative;
+    height: 100vh;
+    background-color: yellow;
+    background-image: url('/hero.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Hero>div {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    z-index: 2;
+}
+
+.Hero h1 {
+    text-align: left;
+    font-size: 6.5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+

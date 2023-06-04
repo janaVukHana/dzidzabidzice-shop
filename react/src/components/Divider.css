@@ -1,0 +1,10 @@
+.Divider {
+    height: 1px;
+    background-color: #fff;
+}
+
+.Divider>div {
+    background-color: rgb(209, 209, 209);
+    height: 1px;
+    margin: 0 2rem;
+}

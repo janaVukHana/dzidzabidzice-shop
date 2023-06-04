@@ -1,0 +1,29 @@
+.OurMenu {
+    background-color: #fff;
+    color: #242424;
+    display: flex;
+}
+
+.OurMenu div:nth-child(1) {
+    flex: 4;
+    padding: 0 2rem 0;
+}
+
+.OurMenu div:nth-child(2) {
+    flex: 3;
+}
+
+.OurMenu h2 {
+    text-align: center;
+}
+
+.OurMenu h3 {
+    text-align: left;
+    font-weight: 400;
+}
+
+.OurMenu p {
+    text-align: left;
+    color: #777777;
+    margin-bottom: 1.5rem;
+}

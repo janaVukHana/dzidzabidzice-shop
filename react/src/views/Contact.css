@@ -1,0 +1,9 @@
+.Contact {
+    color: purple;
+    background-color: var(--danger);
+    height: 100vh;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,30 @@
+.AboutUs {
+    background-color: #fff;
+    color: #242424;
+    display: flex;
+}
+
+.AboutUs div:nth-child(1) {
+    flex: 3;
+}
+
+.AboutUs div:nth-child(2) {
+    flex: 4;
+    padding: 0 2rem 0;
+}
+
+.AboutUs h2 {
+    text-align: center;
+}
+
+.AboutUs h3 {
+    text-align: center;
+}
+
+.AboutUs p {
+    text-align: left;
+}
+
+.AboutUs p.secondary-description {
+    color: #777777
+}
