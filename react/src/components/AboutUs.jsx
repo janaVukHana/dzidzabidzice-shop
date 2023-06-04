@@ -7,8 +7,8 @@ export default function AboutUs() {
                 <img src="/hero.jpg" alt="" />
             </div>
             <div>
-                <h2>About Catering</h2>
-                <h3>Tradition since 1889</h3>
+                <h2>Naša Priča</h2>
+                <h3>Nasleđe u razvoju od 2021</h3>
                 <p className='main-description'>
                     The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, 
                     consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor 

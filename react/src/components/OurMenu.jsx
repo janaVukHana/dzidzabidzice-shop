@@ -5,7 +5,7 @@ export default function OurMenu() {
     return (
         <div className='OurMenu section'>
             <div>
-                <h2>Our Menu</h2>
+                <h2>U Ponudi</h2>
                 <h3>Torte</h3>
                 <p>
                     Assortment of fresh baked fruit breads and muffins 5.50

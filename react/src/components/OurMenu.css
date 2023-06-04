@@ -1,16 +1,11 @@
 .OurMenu {
     background-color: #fff;
-    color: #242424;
     display: flex;
+    gap: 2rem;
 }
 
-.OurMenu div:nth-child(1) {
-    flex: 4;
-    padding: 0 2rem 0;
-}
-
-.OurMenu div:nth-child(2) {
-    flex: 3;
+.OurMenu div {
+    flex: 1;
 }
 
 .OurMenu h2 {
@@ -19,11 +14,11 @@
 
 .OurMenu h3 {
     text-align: left;
-    font-weight: 400;
 }
 
 .OurMenu p {
+    font-size: 0.9rem;
     text-align: left;
-    color: #777777;
+    color: #757575;
     margin-bottom: 1.5rem;
 }

@@ -1,9 +1,39 @@
 .Contact {
-    color: purple;
-    background-color: var(--danger);
-    height: 100vh;
-    color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: var(--blue);
 }
+
+.Contact p {
+  text-align: center;
+  color: #757575;
+}
+
+.Contact .tel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Contact .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: lightblue;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+  
+.Contact .iconContainer .MuiSvgIcon-root {
+  font-size: 24px;
+  color: var(--action);
+}
+
+/* Media Styles */
+/* small screens */
+/* @media only screen and (max-width: 600px) {
+  .Contact a {
+    font-size: 2rem;
+  }
+} */

@@ -1,7 +1,6 @@
 .Hero {
     position: relative;
     height: 100vh;
-    background-color: yellow;
     background-image: url('/hero.jpg');
     background-position: center;
     background-size: cover;
@@ -16,6 +15,7 @@
 }
 
 .Hero h1 {
+    color: #fff;
     text-align: left;
     font-size: 6.5rem;
     line-height: 1.1;
