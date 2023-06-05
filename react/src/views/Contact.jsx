@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axiosClient from "../axios-client";
 import { useStateContext } from "../contexts/ContextProvider";
 import './Contact.css'
-// import Spinner from './Spinner'
+import Spinner from '../components/Spinner'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
@@ -26,7 +26,15 @@ export default function Contact() {
     const [laravelErrors, setLaravelErrors] = useState(null)
     const [sending, setSending] = useState(false)
     const {setNotification} = useStateContext()
-   
+
+    useEffect(() => {
+        if(sending) {
+            document.body.style.overflow = 'hidden'
+        }
+        else {
+            document.body.style.overflow = 'visible'
+        }
+    }, [sending])
 
     const registerOptions = {
         name: {
@@ -59,11 +67,10 @@ export default function Contact() {
     const handleMessage = (formData) => {
         
         setSending(true)
-        console.log('from handle Message fn: ',formData);
+
         axiosClient.post('/message', formData)
             .then(data => {
-                console.log(data);
-                setSending(false)
+                setTimeout(() => setSending(false),2000)
                 // show notification
                 setNotification('Poruka je poslata.')
                 // reset form 
@@ -81,9 +88,9 @@ export default function Contact() {
 
     return (
         <section className='Contact section'>
-            <h2 id="contact">
+            <h1>
                 <Divider component="div" role="presentation">Kontakt</Divider>
-            </h2>
+            </h1>
             <p>Pozovi nas klikom na broj telefona</p>
             <div className='tel-container'>
                 <a style={phoneStyles} href="tel:+38162421903">tel: 062 421903</a>
@@ -155,8 +162,8 @@ export default function Contact() {
                         {...register('message', registerOptions.message)}
                     />
                 </div>
-                {/* {sending && <Spinner />} */}
                 <Button type="submit" fullWidth variant="contained">Pošalji</Button>
+                {sending && <Spinner />}
 
                 
                 {/* Laravel api errors object */}

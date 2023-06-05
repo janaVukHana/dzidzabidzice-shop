@@ -7,7 +7,7 @@ import Hamburger from './Hamburger';
 import DashboardLink from './DashboardLink'
 
 export default function Navbar() {
-    const {showMenu, setShowMenu} = useStateContext()
+    const {showMenu, setShowMenu, token} = useStateContext()
     const [showNavigation, setShowNavigation] = useState(false)
 
     setTimeout(() => setShowNavigation(true), 5000)
@@ -25,7 +25,7 @@ export default function Navbar() {
     <nav className={`Navbar ${!showNavigation && 'hide'}`}>
         <Logo />
         <NavbarMenu />
-        <DashboardLink />
+        {token && <DashboardLink />}
         <Hamburger />
       </nav>
     );

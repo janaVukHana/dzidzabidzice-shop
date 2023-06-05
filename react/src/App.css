@@ -1,2 +1,10 @@
-
-
+.notification {
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    z-index: 99;
+    background-color: var(--primary);
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.5rem 2.5rem;
+  }
