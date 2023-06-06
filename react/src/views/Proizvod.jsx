@@ -11,6 +11,7 @@ export default function Proizvod() {
 
             <div className="flex-container">
                 {proizvodi.map(item => {
+                        {/* DODO: make component and add key */}
                     return (
                         <div className="card">
                             <img src="/hero.jpg" alt="Card Image" />

@@ -9,12 +9,11 @@ use App\Http\Requests\StoreMessageRequest;
 
 class MessageController extends Controller
 {
-    /**
+  /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index() {
+        return MessageResource::collection(Message::orderBy('id', 'desc')->get());
     }
 
     /**
@@ -51,8 +50,12 @@ class MessageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Message $message)
     {
-        //
+        $message->delete();
+
+        return response('', 204);
+        // 204 === NO CONTENT, indicates that a request has succeeded, 
+        // but that the client doesn't need to navigate away from its current page
     }
 }

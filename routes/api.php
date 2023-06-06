@@ -21,8 +21,8 @@ Route::middleware('auth:sanctum')->group(function() {
         return $request->user();
     });
     Route::post('/logout', [AuthController::class, 'logout']);
-    // Route::get('/contact-us', [ContactController::class, 'index']);
-    // Route::delete('/contact-us/{message}', [ContactController::class, 'destroy']);
+    Route::get('/message', [MessageController::class, 'index']);
+    Route::delete('/message/{message}', [MessageController::class, 'destroy']);
 });
 
 Route::post('/message', [MessageController::class, 'store'])->name('message.store');

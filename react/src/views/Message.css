@@ -1,6 +1,57 @@
 .Message {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: var(--blue);
+    background-color: var(--blue);
+    min-height: 100vh;
 }
+
+.Message .messages-content {
+    background-color: #a7a7a7;
+    width: 90%;
+    padding: 1rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+  
+  .message-item {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  .message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .message-from {
+    font-weight: bold;
+  }
+  
+  .message-time {
+    color: #888;
+  }
+  
+  .message-email {
+    margin-bottom: 5px;
+  }
+  
+  .message-message {
+    color: #333;
+  }
+  
+  p {
+    margin: 0;
+  }
+
+  .delete-button {
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  

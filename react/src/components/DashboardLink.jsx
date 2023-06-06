@@ -75,6 +75,16 @@ export default function DashboardLink() {
               <Typography textAlign="center"><NavLink to={`/ponuda`}>Ponuda</NavLink></Typography>
             </MenuItem>
           }
+          {user.role === 'admin' && 
+            <MenuItem onClick={handleCloseUserMenu}>
+              <Typography textAlign="center"><NavLink to={`/slicice`}>Sličice</NavLink></Typography>
+            </MenuItem>
+          }
+          {user.role === 'admin' && 
+            <MenuItem onClick={handleCloseUserMenu}>
+              <Typography textAlign="center"><NavLink to={`/porudzbine`}>Porudžbine</NavLink></Typography>
+            </MenuItem>
+          }
           <MenuItem onClick={handleLogout}><Typography textAlign="center">Logout</Typography></MenuItem>
       </Menu>
     </div>

@@ -41,9 +41,9 @@ function App() {
             <Route path="/brbrlogin" element={<Login />} />
 
             <Route path="/poruke" element={<Protected><Message /></Protected>} />
-            {/* TODO: protected Profil, Proizvodi, Galerija */}
-            {/* Profil guest, Proizvodi i Galerija admin */}
-            {/* <Route path="/dashboard" element={<Protected><Dashboard /></Protected>} /> */}
+            {/* TODO */}
+            {/* Route /profil poruke ponuda slicice porudzbine */}
+            {/* views Profile Message Offer Images Orders */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
