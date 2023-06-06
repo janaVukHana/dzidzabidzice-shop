@@ -25,10 +25,11 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/message', [MessageController::class, 'index']);
     Route::delete('/message/{message}', [MessageController::class, 'destroy']);
 
-    Route::get('/images', [ImageController::class, 'index']);
     Route::post('/images', [ImageController::class, 'store']);
+    Route::delete('/images/{image}', [ImageController::class, 'destroy']);
 });
 
+Route::get('/images', [ImageController::class, 'index']);
 Route::post('/message', [MessageController::class, 'store'])->name('message.store');
 Route::post('/login', [AuthController::class, 'login']);
 

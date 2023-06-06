@@ -3,10 +3,12 @@ import Divider from '@mui/material/Divider';
 import AddNewImageForm from '../components/AddNewImageForm'
 import { useState, useEffect } from 'react';
 import axiosClient from '../axios-client';
+import { useStateContext } from '../contexts/ContextProvider';
 
 export default function Image() {
 
     const [images, setImages] = useState([])
+    const {setNotification} = useStateContext()
 
     useEffect(() => {
         updateImages()
@@ -20,6 +22,18 @@ export default function Image() {
             })
     }
 
+    const handleDeleteImage = (id) => {
+        if (!window.confirm('Are you sure you want to delete this image?')) {
+            return;
+        }
+        
+        axiosClient.delete('/images/' + id)
+            .then(() => {
+                setNotification('Image deleted');
+                updateImages();
+            });
+    }
+
     return (
         <div className='Image section'>
             <h1>
@@ -27,13 +41,34 @@ export default function Image() {
             </h1>
             <AddNewImageForm onUpdate={updateImages} />
             {/* tabela sa slicicama i delete i edit i cols i rows as optional */}
-            <ul>
-                {images.map((image,i) => {
+            <table>
+                <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    {/* // <!-- Empty cell for delete button --> */}
+                    <th></th> 
+                    {/* <!-- Empty cell for edit button --> */}
+                    <th></th> 
+                </tr>
+                </thead>
+                <tbody>
+                {images.map((image, i) => {
                     return (
-                        <li key={i}>{image.image} {image.title} {image.rows} {image.cols}</li>
+                    <tr key={i}>
+                        <td><img src={`http://localhost:8000/images/gallery/${image.image}`} alt={image.title} /></td>
+                        <td>{image.title}</td>
+                        <td>
+                        <button onClick={() => handleDeleteImage(image.id)} className='btn btn-delete'>Delete</button>
+                        </td>
+                        <td>
+                        <button className='btn'>Edit</button>
+                        </td>
+                    </tr>
                     )
                 })}
-            </ul>
+                </tbody>
+            </table>
         </div>
     )
 }

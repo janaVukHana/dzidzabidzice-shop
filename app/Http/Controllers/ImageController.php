@@ -65,8 +65,13 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Image $image)
     {
-        //
+        // Delete the old image only if it exists
+        if ($image->image) {
+            unlink('images/gallery/' . $image->image);
+        }        
+        $image->delete();
+        return response('', 204);
     }
 }
