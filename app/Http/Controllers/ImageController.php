@@ -13,7 +13,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        return ImageResource::collection(Image::orderBy('id', 'desc')->get());
     }
 
     /**
@@ -21,10 +21,13 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        // MOZE I StoreProductRequest $request CLASS DA SE NAPRAVI kao CodeHolic
+        // TODO: before storing image in database and folder gallery i want to
+        // validate that image is unique
 
+        // MOZE I StoreProductRequest $request CLASS DA SE NAPRAVI kao CodeHolic
         $formData = $request->validate([
             'title' => ['required', 'max:10'],
+            // TODO: check later is one of this going to work!!!
             // 'image' => ['required','mimes:jpg,jpeg,png'],
             // 'image' => ['required', 'mimes:jpg,jpeg,png', 'mimetypes:image/jpeg,image/png'],
             'image' => 'required',

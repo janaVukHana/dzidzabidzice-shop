@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { autocompleteClasses } from '@mui/material';
 
-export default function AddNewImageForm() {
+export default function AddNewImageForm({onUpdate}) {
     const {register, handleSubmit, reset, watch, formState: { errors }} = useForm({mode: 'onChange'})
 
     const [laravelErrors, setLaravelErrors] = useState(null)
@@ -86,6 +86,8 @@ export default function AddNewImageForm() {
               'Content-Type': 'multipart/form-data', // Make sure to set the content type as multipart/form-data
             },
           });
+
+          onUpdate()
           // Handle the response from the API, e.g., show a success notification
           setNotification('Image added successfully');
           // Reset the form
