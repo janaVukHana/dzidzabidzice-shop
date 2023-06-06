@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import axiosClient from "../axios-client";
 
 // createContext function accept DEFAULT VALUE. Default value is important for autocomplete purpose.
 const StateContext = createContext({
@@ -31,6 +32,19 @@ export const ContextProvider = ({children}) => {
             localStorage.removeItem('ACCESS_TOKEN')
         }
     }
+
+    useEffect(() => {
+        return () => {
+            axiosClient.post('/logout')
+                .then(() => {
+                    setUser({})
+                    setToken(null)
+                    setNotification('Izlogovan si.')
+
+                    localStorage.removeItem('ACCESS_TOKEN');
+                })    
+        }
+    }, [])
 
     return (
         <StateContext.Provider value={{

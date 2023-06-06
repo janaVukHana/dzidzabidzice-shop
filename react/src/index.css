@@ -151,6 +151,17 @@ button:focus {
   color: var(--action);
 }
 
+.btn-delete {
+  background-color: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}
+
+.btn-delete:hover {
+  background-color: #fff;
+  color: var(--danger);
+}
+
 /* Overlay Styles */
 .overlay {
   position: absolute;

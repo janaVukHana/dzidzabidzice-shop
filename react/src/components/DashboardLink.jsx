@@ -13,7 +13,7 @@ import axiosClient from '../axios-client';
 export default function DashboardLink() {
   
   const {token, user, setUser, setToken, setNotification} = useStateContext()
- 
+  // console.log(user);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenUserMenu = (event) => {

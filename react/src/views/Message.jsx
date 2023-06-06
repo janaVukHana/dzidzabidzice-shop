@@ -58,7 +58,7 @@ export default function Message() {
                                     {message.message.split('\n').map((p, index) => <p key={index}>{p}</p>)}
                                 </div>
                                 <button
-                                    className="delete-button"
+                                    className="btn btn-delete"
                                     onClick={() => handleClick(message.id)}
                                 >
                                     Delete

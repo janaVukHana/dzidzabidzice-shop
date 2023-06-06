@@ -46,7 +46,7 @@
     margin: 0;
   }
 
-  .delete-button {
+  /* .delete-button {
     background-color: var(--danger);
     color: white;
     border: none;
@@ -54,4 +54,4 @@
     border-radius: 4px;
     cursor: pointer;
 }
-  
+   */

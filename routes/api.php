@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MessageController;
 
 /*
@@ -23,6 +24,8 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/message', [MessageController::class, 'index']);
     Route::delete('/message/{message}', [MessageController::class, 'destroy']);
+
+    Route::post('/images', [ImageController::class, 'store']);
 });
 
 Route::post('/message', [MessageController::class, 'store'])->name('message.store');

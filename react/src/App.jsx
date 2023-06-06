@@ -10,6 +10,7 @@ import Contact from './views/Contact'
 import Login from './views/Login'
 import NotFound from './views/NotFound'
 import Message from './views/Message'
+import Image from './views/Image'
 import ScrollToTop from './components/ScrollToTop'
 import Proizvod from './views/Proizvod'
 import Protected from './components/Protected'
@@ -41,6 +42,7 @@ function App() {
             <Route path="/brbrlogin" element={<Login />} />
 
             <Route path="/poruke" element={<Protected><Message /></Protected>} />
+            <Route path="/slicice" element={<Protected><Image /></Protected>} />
             {/* TODO */}
             {/* Route /profil poruke ponuda slicice porudzbine */}
             {/* views Profile Message Offer Images Orders */}
