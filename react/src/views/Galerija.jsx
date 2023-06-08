@@ -24,7 +24,6 @@ function srcset(image, size, rows = 1, cols = 1) {
     useEffect(() => {
       axiosClient.get('/images')
               .then(({data}) => {
-                  console.log(data);
                   setImagesData(data.data)
               })
     }, [])

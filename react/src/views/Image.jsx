@@ -17,7 +17,6 @@ export default function Image() {
     const updateImages = () => {
         axiosClient.get('/images')
             .then(({data}) => {
-                console.log(data);
                 setImages(data.data)
             })
     }
@@ -47,9 +46,7 @@ export default function Image() {
                     <th>Image</th>
                     <th>Title</th>
                     {/* // <!-- Empty cell for delete button --> */}
-                    <th></th> 
-                    {/* <!-- Empty cell for edit button --> */}
-                    <th></th> 
+                    <th></th>  
                 </tr>
                 </thead>
                 <tbody>
@@ -60,9 +57,6 @@ export default function Image() {
                         <td>{image.title}</td>
                         <td>
                         <button onClick={() => handleDeleteImage(image.id)} className='btn btn-delete'>Delete</button>
-                        </td>
-                        <td>
-                        <button className='btn'>Edit</button>
                         </td>
                     </tr>
                     )

@@ -11,21 +11,25 @@ import Login from './views/Login'
 import NotFound from './views/NotFound'
 import Message from './views/Message'
 import Image from './views/Image'
+import Offer from './views/Offer'
+import OfferForm from './views/OfferForm'
 import ScrollToTop from './components/ScrollToTop'
 import Proizvod from './views/Proizvod'
 import Protected from './components/Protected'
+import axiosClient from './axios-client'
 
 function App() {
 
   const {notification, setNotification} = useStateContext()
 
   useEffect(() => {
+
     if(notification) {
       setTimeout(() => {
         setNotification(null)
       }, 5000)
     }
-  })
+  }, [notification])
 
   return (
     <div className="App">
@@ -43,6 +47,8 @@ function App() {
 
             <Route path="/poruke" element={<Protected><Message /></Protected>} />
             <Route path="/slicice" element={<Protected><Image /></Protected>} />
+            <Route path="/ponuda" element={<Protected><Offer /></Protected>} />
+            <Route path="/forma-ponuda" element={<Protected><OfferForm /></Protected>} />
             {/* TODO */}
             {/* Route /profil poruke ponuda slicice porudzbine */}
             {/* views Profile Message Offer Images Orders */}

@@ -65,14 +65,15 @@ export default function DashboardLink() {
           <MenuItem onClick={handleCloseUserMenu}>
             <Typography textAlign="center"><NavLink to={`/profil`}>Profil</NavLink></Typography>
           </MenuItem>
-          {user.role === 'admin' && 
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center"><NavLink to={`/poruke`}>Poruke</NavLink></Typography>
-              </MenuItem>
-          }
+          {/* Links/pages only admin can visit and see */}
           {user.role === 'admin' && 
             <MenuItem onClick={handleCloseUserMenu}>
               <Typography textAlign="center"><NavLink to={`/ponuda`}>Ponuda</NavLink></Typography>
+            </MenuItem>
+          }
+          {user.role === 'admin' && 
+            <MenuItem onClick={handleCloseUserMenu}>
+              <Typography textAlign="center"><NavLink to={`/forma-ponuda`}>Dodaj u ponudu</NavLink></Typography>
             </MenuItem>
           }
           {user.role === 'admin' && 
@@ -84,6 +85,11 @@ export default function DashboardLink() {
             <MenuItem onClick={handleCloseUserMenu}>
               <Typography textAlign="center"><NavLink to={`/porudzbine`}>Porudžbine</NavLink></Typography>
             </MenuItem>
+          }
+          {user.role === 'admin' && 
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Typography textAlign="center"><NavLink to={`/poruke`}>Poruke</NavLink></Typography>
+              </MenuItem>
           }
           <MenuItem onClick={handleLogout}><Typography textAlign="center">Logout</Typography></MenuItem>
       </Menu>
