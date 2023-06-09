@@ -1,0 +1,40 @@
+  .Gallery table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .Gallery th, .Gallery td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .Gallery th:first-child, .Gallery td:first-child {
+    width: 200px;
+  }
+  
+  .Gallery th:last-child, .Gallery td:last-child {
+    text-align: center;
+    width: 100px;
+  }
+
+  .Gallery img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  /* .Image button {
+    padding: 4px 8px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .Image button:hover {
+    background-color: #d32f2f;
+  } */
+  
+  /* Add your additional CSS styles for the Image component here */
+  

@@ -1,0 +1,17 @@
+.Gallery {
+    min-height: 100vh;
+    width: auto;
+    margin: auto;
+    margin-top: 55px;
+}
+
+.Gallery h1 {
+    font-size: 1.4rem;
+}
+
+.gallery-content {
+    width: 95%;
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 1rem;
+}
