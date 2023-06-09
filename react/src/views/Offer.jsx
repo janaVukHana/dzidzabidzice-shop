@@ -6,17 +6,31 @@ import axiosClient from '../axios-client'
 
 export default function Offer() {
 
-    const { products, setProducts } = useStateContext()
+    const { products, setProducts, setNotification } = useStateContext()
     
     useEffect(() => {
-        if(!products) {
-            // Fetching all products
-            axiosClient.get('/products')
-            .then(({data}) => {
-                setProducts(data.data)
-            })
-            }
+        getProducts()
     }, [])
+    
+    const getProducts = () => {
+        // Fetching all products
+        axiosClient.get('/products')
+        .then(({data}) => {
+            setProducts(data.data)
+        })
+    }
+
+    const handleDeleteImage = (id) => {
+        if (!window.confirm('Are you sure you want to delete this product?')) {
+            return;
+        }
+        
+        axiosClient.delete('/products/' + id)
+            .then(() => {
+                getProducts()
+                setNotification('Product deleted');
+            });
+    }
 
     return (
         <div className='Offer section'>
@@ -30,7 +44,7 @@ export default function Offer() {
                     <th>Image</th>
                     <th>Title</th>
                     <th>Price</th>
-                    {/* Empty cell for delete button */}
+                    {/* Empty cell for edit button */}
                     <th></th>  
                     {/* Empty cell for delete button */}
                     <th></th>
@@ -40,7 +54,7 @@ export default function Offer() {
                 {products && products.map((product, i) => {
                     return (
                     <tr key={i}>
-                        <td><img src={product.image} alt={product.title} /></td>
+                        <td><img src={'http://localhost:8000/images/products/'+product.image} alt={product.title} /></td>
                         <td>{product.title}</td>
                         <td>${product.price}</td>
                         <td>

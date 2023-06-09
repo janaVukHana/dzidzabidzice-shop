@@ -28,7 +28,7 @@ export default function Proizvod() {
                         {/* DODO: make component and add key */}
                     return (
                         <div key={index} className="card">
-                            <img src={item.image} alt="Card Image" />
+                            <img src={'http://localhost:8000/images/products/'+item.image} alt="Card Image" />
                             <h3>{item.title}</h3>
                             <p className='description'>{item.description}</p>
                             <div className="details">

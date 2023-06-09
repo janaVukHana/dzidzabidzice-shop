@@ -16,12 +16,36 @@ class OfferController extends Controller
         return OfferResource::collection(Offer::orderBy('id', 'desc')->get());
     }
 
-    /**
+     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        // TODO: before storing image in database and folder gallery i want to
+        // validate that image is unique
+
+        // MOZE I StoreProductRequest $request CLASS DA SE NAPRAVI kao CodeHolic
+        $formData = $request->validate([
+            // TODO: check later is one of this going to work!!!
+            // 'image' => ['required','mimes:jpg,jpeg,png'],
+            // 'image' => ['required', 'mimes:jpg,jpeg,png', 'mimetypes:image/jpeg,image/png'],
+            'image' => 'required',
+            'title' => ['required', 'max:10'],
+            'description' => ['required', 'min:10', 'max:30'],
+            // TODO:  validate price is number and positive
+            'price' => ['required'],
+            'category' => ['required'],
+        ]);
+        $image = request()->file('image');
+
+        $image_name = time().'.'.$image->getClientOriginalExtension();
+        $image->move('images/products/',$image_name);
+        $formData['image'] = $image_name; 
+
+        $newOffer = Offer::create($formData);
+
+        return response(new OfferResource($newOffer), 201);
+        // 201 == the request has succeeded and has led to the creation of a resource.
     }
 
     /**
@@ -43,8 +67,13 @@ class OfferController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Offer $offer)
     {
-        //
+        // Delete the old image only if it exists
+        if ($offer->image) {
+            unlink('images/products/' . $offer->image);
+        }        
+        $offer->delete();
+        return response('', 204);
     }
 }

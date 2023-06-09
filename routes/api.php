@@ -28,6 +28,10 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::post('/images', [ImageController::class, 'store']);
     Route::delete('/images/{image}', [ImageController::class, 'destroy']);
+
+    Route::post('/products', [OfferController::class, 'store']);
+    Route::delete('/products/{offer}', [OfferController::class, 'destroy']);
+
 });
 
 Route::get('/images', [ImageController::class, 'index']);

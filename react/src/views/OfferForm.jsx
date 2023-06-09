@@ -8,6 +8,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import MenuItem from '@mui/material/MenuItem'
+import { useNavigate } from 'react-router-dom';
 
 // TODO: better validation. 
 // Category have some issues. It show error on Change(until submit).
@@ -15,11 +16,18 @@ import MenuItem from '@mui/material/MenuItem'
 
 export default function OfferForm() {
 
-    const {register, handleSubmit, reset, watch, formState: { errors }} = useForm({mode: 'onChange'})
+    const navigate = useNavigate()
+
+    const {register, handleSubmit, reset, watch, formState: { errors }, setValue} = useForm({
+      mode: 'onChange',
+      defaultValues: {
+        category: 'torte',
+      }
+    })
 
     const [laravelErrors, setLaravelErrors] = useState(null)
     const [sending, setSending] = useState(false)
-    const {setNotification} = useStateContext()
+    const {setNotification, setProducts} = useStateContext()
 
     // Hide scrollbar while communicatin with api
     useEffect(() => {
@@ -29,7 +37,9 @@ export default function OfferForm() {
         else {
             document.body.style.overflow = 'visible'
         }
-    }, [sending])
+
+        setValue('category', watch('category'));
+    }, [sending, watch, setValue])
 
     const registerOptions = {
         // FronEnd Validation
@@ -51,7 +61,7 @@ export default function OfferForm() {
             },
           },
           title: {
-            // required: 'Obavezno polje.',
+            required: 'Obavezno polje.',
             minLength: {
               value: 3,
               message: 'Naslov mora imati najmanje 3 karaktera.',
@@ -78,13 +88,36 @@ export default function OfferForm() {
     const handleError = (errors) => {}
 
     // onSubmit
-    const handleAddProduct = (formData) => {
-        // e.preventDefault()
+    const handleAddProduct = async (formData) => {
+      try {
+        setSending(true); // Set the sending state to true to show the spinner
 
-        console.log('I will add product!');
-        console.log(formData);
-    }
+        const data = new FormData(); // Create a new FormData instance
 
+        // Append the form data to the FormData instance
+        data.append('image', formData.image[0]);
+        data.append('title', formData.title);
+        data.append('description', formData.description);
+        data.append('price', formData.price);
+        data.append('category', formData.category);
+
+        const response = await axiosClient.post('/products', data, {
+          headers: {
+            'Content-Type': 'multipart/form-data', // Make sure to set the content type as multipart/form-data
+          },
+        });
+
+        // Handle the response from the API, e.g., show a success notification
+        setNotification('Product added successfully');
+        // Redirect to another route
+        navigate('/ponuda')
+      } catch (error) {
+        // Handle any errors that occur during the API request, e.g., show error messages
+        setLaravelErrors(error.response?.data?.errors);
+      } finally {
+        setSending(false); // Set the sending state back to false to hide the spinner
+      }
+    };
     return (
         <div className='OfferForm section'>
             <h1>Dodaj proizvod</h1>
@@ -150,11 +183,14 @@ export default function OfferForm() {
                     id="category"
                     name="category"
                     {...register('category', registerOptions.category)}
+                    value={watch('category')} // Set the value based on the watched value
+                    onChange={(e) => setValue('category', e.target.value)} // Update the value when it changes
                     >
-                    <MenuItem disabled value="">Odaberite kategoriju</MenuItem>
-                    <MenuItem value="option1">Option 1</MenuItem>
-                    <MenuItem value="option2">Option 2</MenuItem>
-                    <MenuItem value="option3">Option 3</MenuItem>
+                    {/* <MenuItem disabled value="">Odaberite kategoriju</MenuItem> */}
+                    <MenuItem value="torte">Torte</MenuItem>
+                    <MenuItem value="kolaci">Kolaci</MenuItem>
+                    <MenuItem value="mafini">Mafini</MenuItem>
+                    <MenuItem value="krofnice">Krofnice</MenuItem>
                 </TextField>
                 
                 
