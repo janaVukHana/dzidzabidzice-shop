@@ -1,3 +1,24 @@
+  .Product .filter {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+  }
+
+  .Product .filter button {
+    margin-right: 2rem;
+  }
+
+  .Product .filter-dropdown {
+    margin-bottom: 1rem;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    /* Add more styles as needed */
+  }
+  
   .Product .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -45,6 +66,10 @@
     padding: 2px 4px;
     border-radius: 4px;
     background-color: var(--danger);
+  }
+
+  .Product .category:hover {
+    cursor: pointer;
   }
   
   .Product .add-to-cart {
