@@ -1,11 +1,30 @@
 import './Gallery.css'
 import * as React from 'react';
+import { useState, useEffect} from 'react'
 import axiosClient from '../axios-client';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import Divider from '@mui/material/Divider'
-import { useState, useEffect} from 'react'
 import Spinner from '../components/Spinner';
+
+// Test Modal
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  height: 600,
+  bgcolor: 'background.paper',
+  // border: '2px solid #000',
+  // boxShadow: 24,
+  p: 4,
+};
+// Test Modal END
 
 function srcset(image, size, rows = 1, cols = 1) {
     return {
@@ -18,6 +37,15 @@ function srcset(image, size, rows = 1, cols = 1) {
 
   
   export default function Gallery() {
+    // Test Modal
+    const [open, setOpen] = React.useState(false);
+    const [selectedImage, setSelectedImage] = React.useState(null); // Track the selected image
+    const handleOpen = (image) => {
+      setOpen(true);
+      setSelectedImage(image); // Set the selected image when opening the modal
+    };
+  const handleClose = () => setOpen(false);
+    // Test Modal END 
 
     const [imagesData, setImagesData] = useState()
 
@@ -42,7 +70,7 @@ function srcset(image, size, rows = 1, cols = 1) {
                     rowHeight={121}
                 >
                     {imagesData.map((item) => (
-                    <ImageListItem onClick={() => console.log(item.id)} key={item.image} cols={item.cols || 1} rows={item.rows || 1}>
+                    <ImageListItem onClick={() => handleOpen(item.image)} key={item.image} cols={item.cols || 1} rows={item.rows || 1}>
                         <img
                         {...srcset(item.image, 121, item.rows, item.cols)}
                         alt={item.title}
@@ -53,6 +81,24 @@ function srcset(image, size, rows = 1, cols = 1) {
                 </ImageList>
               }
             </div>
+            {/* Test Modal */}
+            <Modal
+              open={open}
+              onClose={handleClose}
+              // aria-labelledby="modal-modal-title"
+              // aria-describedby="modal-modal-description"
+            >
+              <Box className='modal'>
+                {/* <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Text in a modal
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                  Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                </Typography> */}
+                <img src={`http://localhost:8000/images/gallery/${selectedImage}`} alt="" /> {/* Show the selected image */}
+              </Box>
+            </Modal>
+            {/* Test Modal END */}
         </div>
     );
 }
