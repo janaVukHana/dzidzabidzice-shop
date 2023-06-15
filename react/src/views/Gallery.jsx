@@ -30,7 +30,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 
     return (
         <div className='Gallery section'>
-            <h1><Divider component="div" role="presentation">Galerija Torti, Kolača, Mafina i Krofnica</Divider></h1>
+            <h1>Galerija Torti, Kolača, Mafina i Krofnica</h1>
             <div className='gallery-content'>
               {!imagesData && <Spinner />}
               {imagesData && 
@@ -42,7 +42,7 @@ function srcset(image, size, rows = 1, cols = 1) {
                     rowHeight={121}
                 >
                     {imagesData.map((item) => (
-                    <ImageListItem key={item.image} cols={item.cols || 1} rows={item.rows || 1}>
+                    <ImageListItem onClick={() => console.log(item.id)} key={item.image} cols={item.cols || 1} rows={item.rows || 1}>
                         <img
                         {...srcset(item.image, 121, item.rows, item.cols)}
                         alt={item.title}

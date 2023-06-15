@@ -5,6 +5,14 @@
     margin-top: 55px;
 }
 
+.Gallery ul {
+    width: 100%;
+}
+
+.Gallery ul li:hover {
+    cursor: pointer;
+}
+
 .Gallery h1 {
     font-size: 1.4rem;
 }
@@ -14,4 +22,11 @@
     max-width: 500px;
     margin: auto;
     margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .Gallery.section {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

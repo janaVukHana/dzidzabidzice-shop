@@ -89,7 +89,7 @@ export default function AddNewImageForm({onUpdate}) {
 
           onUpdate()
           // Handle the response from the API, e.g., show a success notification
-          setNotification('Image added successfully');
+          setNotification('Slika je uspešno dodata.');
           // Reset the form
           reset();
         } catch (error) {
