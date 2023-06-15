@@ -22,7 +22,7 @@ export default function OurMenu() {
                 <p>
                     Assortment of fresh baked fruit breads and muffins 5.50
                 </p>
-                <NavLink to="/proizvodi" className='btn btn-action'>Pogledaj kompletnu ponudu</NavLink>
+                <NavLink to="/proizvodi" className='btn btn-action'>Kompletna ponuda</NavLink>
             </div>
             <div>
                 <img src="/hero.jpg" alt="" />

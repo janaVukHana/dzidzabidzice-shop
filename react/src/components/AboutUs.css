@@ -24,3 +24,9 @@
 .AboutUs p.secondary-description {
     color: #757575;
 }
+
+@media only screen and (max-width: 600px) {
+    .AboutUs {
+        flex-direction: column;
+    }
+}

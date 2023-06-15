@@ -22,3 +22,11 @@
     margin-bottom: 2rem;
 }
 
+@media only screen and (max-width: 600px) {
+    .Hero h1 {
+        font-size: 3.2rem;
+    }
+}
+
+
+

@@ -69,6 +69,14 @@
   }
   
   @media (max-width: 600px) {
+    .Product h1 {
+      font-size: 1.3rem;
+    }
+
+    .Product h2 {
+      font-size: 1.3rem;
+    }
+
     .Product .card {
       flex-basis: 100%;
     }
