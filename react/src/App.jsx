@@ -53,6 +53,7 @@ function App() {
             <Route path="/slicice" element={<Protected><AdminGallery /></Protected>} />
             <Route path="/ponuda" element={<Protected><Offer /></Protected>} />
             <Route path="/forma-ponuda" element={<Protected><OfferForm /></Protected>} />
+            <Route path="/ponuda/:id" element={<Protected><OfferForm /></Protected>} />
             {/* TODO */}
             {/* Route /profil poruke ponuda slicice porudzbine */}
             {/* views Profile Message Offer Images Orders */}

@@ -58,7 +58,7 @@ export default function Offer() {
                         <td>{product.title}</td>
                         <td>${product.price}</td>
                         <td>
-                        <button className='btn'>Edit</button>
+                        <Link to={'/ponuda/'+product.id} className='btn'>Edit</Link>
                         </td>
                         <td>
                         <button onClick={() => handleDeleteImage(product.id)} className='btn btn-delete'>Delete</button>

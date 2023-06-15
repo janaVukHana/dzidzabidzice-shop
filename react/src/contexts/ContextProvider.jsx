@@ -38,14 +38,16 @@ export const ContextProvider = ({children}) => {
 
     useEffect(() => {
         return () => {
-            axiosClient.post('/logout')
-                .then(() => {
-                    setUser({})
-                    setToken(null)
-                    setNotification('Izlogovan si.')
-
-                    localStorage.removeItem('ACCESS_TOKEN');
-                })    
+            if(token|| user.name) {
+                axiosClient.post('/logout')
+                    .then(() => {
+                        setUser({})
+                        setToken(null)
+                        setNotification('Izlogovan si.')
+    
+                        localStorage.removeItem('ACCESS_TOKEN');
+                    })    
+            }
         }
     }, [])
 

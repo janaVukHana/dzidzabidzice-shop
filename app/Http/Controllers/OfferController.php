@@ -21,26 +21,21 @@ class OfferController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO: before storing image in database and folder gallery i want to
-        // validate that image is unique
-
         // MOZE I StoreProductRequest $request CLASS DA SE NAPRAVI kao CodeHolic
         $formData = $request->validate([
-            // TODO: check later is one of this going to work!!!
-            // 'image' => ['required','mimes:jpg,jpeg,png'],
-            // 'image' => ['required', 'mimes:jpg,jpeg,png', 'mimetypes:image/jpeg,image/png'],
-            'image' => 'required',
-            'title' => ['required', 'max:10'],
-            'description' => ['required', 'min:10', 'max:30'],
-            // TODO:  validate price is number and positive
-            'price' => ['required'],
+            'image' => ['nullable', 'sometimes', 'image', 'mimes:jpeg,jpg,png'],
+            'title' => ['required', 'min:6','max:20'],
+            'description' => ['required', 'min:20', 'max:100'],
+            'price' => ['required','numeric','gt:0'],
             'category' => ['required'],
         ]);
-        $image = request()->file('image');
-
-        $image_name = time().'.'.$image->getClientOriginalExtension();
-        $image->move('images/products/',$image_name);
-        $formData['image'] = $image_name; 
+        
+        if($request->hasFile('image')) {
+            $image = request()->file('image');
+            $image_name = time().'.'.$image->getClientOriginalExtension();
+            $image->move('images/products/',$image_name);
+            $formData['image'] = $image_name; 
+        }
 
         $newOffer = Offer::create($formData);
 
@@ -53,16 +48,54 @@ class OfferController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Offer::find($id);
+
+        if (!$product) {
+            return response()->json(['product' => 'Product not found'], 404);
+        }
+
+        return new OfferResource($product);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Offer::find($id);
+
+        if (!$product) {
+            return response()->json(['product' => 'Product not found'], 404);
+        }
+
+        $formData = $request->validate([
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png'],
+            'title' => ['required', 'min:6','max:20'],
+            'description' => ['required', 'min:20', 'max:100'],
+            'price' => ['required','numeric','gt:0'],
+            'category' => ['required'],
+        ]);
+
+        if ($request->hasFile('image')) {
+            // New image provided, handle the upload and update logic
+            $image = $request->file('image');
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('images/products/', $image_name);
+            $formData['image'] = $image_name;
+
+            // Delete the old image only if it exists
+            if ($product->image) {
+                unlink('images/products/' . $product->image);
+            }
+        } else {
+            // No new image provided, keep the existing image
+            // $formData['image'] = $product->image;
+            // No new image provided, keep the existing image
+            unset($formData['image']); // Remove the 'image' field from the $formData array
+        }
+
+        $product->update($formData);
+
+        return new OfferResource($product);
     }
+
 
     /**
      * Remove the specified resource from storage.

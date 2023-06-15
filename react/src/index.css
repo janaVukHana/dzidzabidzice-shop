@@ -200,6 +200,10 @@ textarea:focus {
   border: none;
   outline: none;
 }
+
+.error {
+  color: var(--danger);
+}
 /* 
 SOME OF DEFAULT REACT STYLES
 :root {

@@ -18,6 +18,8 @@ use App\Http\Controllers\OfferController;
 |
 */
 
+// TODO: rename Offer, OfferController, OfferResource and offer table to Product
+
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', function(Request $request) {
         return $request->user();
@@ -31,6 +33,8 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::post('/products', [OfferController::class, 'store']);
     Route::delete('/products/{offer}', [OfferController::class, 'destroy']);
+    Route::get('/products/{offer}', [OfferController::class, 'show']);
+    Route::put('/products/{offer}', [OfferController::class, 'update']);
 
 });
 
