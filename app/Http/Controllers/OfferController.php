@@ -23,7 +23,7 @@ class OfferController extends Controller
     {
         // MOZE I StoreProductRequest $request CLASS DA SE NAPRAVI kao CodeHolic
         $formData = $request->validate([
-            'image' => ['nullable', 'sometimes', 'image', 'mimes:jpeg,jpg,png'],
+            'image' => ['nullable', 'sometimes', 'image', 'mimes:jpeg,jpg,png,webp'],
             'title' => ['required', 'min:6','max:20'],
             'description' => ['required', 'min:20', 'max:100'],
             'price' => ['required','numeric','gt:0'],
@@ -66,7 +66,7 @@ class OfferController extends Controller
         }
 
         $formData = $request->validate([
-            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp'],
             'title' => ['required', 'min:6','max:20'],
             'description' => ['required', 'min:20', 'max:100'],
             'price' => ['required','numeric','gt:0'],

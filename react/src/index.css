@@ -149,6 +149,7 @@ button:focus {
 .btn-action:hover {
   background-color: #fff;
   color: var(--action);
+  border-color: var(--action);
 }
 
 .btn-delete {
@@ -160,6 +161,7 @@ button:focus {
 .btn-delete:hover {
   background-color: #fff;
   color: var(--danger);
+  border-color: var(--danger);
 }
 
 /* Overlay Styles */

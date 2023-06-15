@@ -99,7 +99,7 @@ export default function Product() {
                             <h3>{item.title}</h3>
                             <p className='description'>{item.description}</p>
                             <div className="details">
-                                <p className="price">${item.price}</p>
+                                <p className="price">{Number(item.price)} rsd.</p>
                                 <span onClick={() => handleCategoryFilter(item.category)} className="category">{item.category}</span>
                             </div>
                             <button onClick={() => handleAddToCart(item.id)} className="btn btn-action add-to-cart">Add to Cart</button>
