@@ -32,8 +32,8 @@ export default function AddNewImageForm({onUpdate}) {
               requiredFileType: (value) => {
                 if (!value[0]) return true; // Skip validation if no file is selected
                 const fileType = value[0].type;
-                const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png'];
-                return allowedFormats.includes(fileType) || 'Dozvoljeni formati slika su JPEG, JPG i PNG.';;
+                const allowedFormats = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+                return allowedFormats.includes(fileType) || 'Dozvoljeni formati slika su JPEG, JPG, PNG i WEBP.';;
               },
               requiredFileSize: (value) => {
                 if (!value[0]) return true; // Skip validation if no file is selected

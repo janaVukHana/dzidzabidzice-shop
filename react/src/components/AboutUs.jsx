@@ -4,7 +4,7 @@ export default function AboutUs() {
     return (
         <div className='AboutUs section'>
             <div>
-                <img src="/hero.jpg" alt="" />
+                <img src="/image0_1.webp" alt="" />
             </div>
             <div>
                 <h2>Naša Priča</h2>

@@ -13,7 +13,7 @@ import Select from '@mui/material/Select';
 
 export default function Product() {
 
-    const {products, setProducts} = useStateContext()
+    const {products, setProducts, setCartItems, setNotification} = useStateContext()
 
     const [category, setCategory] = useState(sessionStorage.getItem('category'))
 
@@ -39,6 +39,24 @@ export default function Product() {
     const handleResetFilterCategory = () => {
         sessionStorage.removeItem('category')
         setCategory(null)
+    }
+
+    const handleAddToCart = (id) => {
+
+        let isItemInCart = false
+
+        setCartItems(prevVal => {
+            prevVal.forEach(item => {
+                if(item.id === id) {
+                    setNotification('Proizvod dodat ranije u korpu')
+                    isItemInCart = true
+                }
+            })
+            
+            if(isItemInCart) return prevVal;
+            setNotification('Dodali ste proizvod u korpu.')
+            return [...prevVal, {id: id, quantity: 1}]        
+        })
     }
 
     return (
@@ -84,7 +102,7 @@ export default function Product() {
                                 <p className="price">${item.price}</p>
                                 <span onClick={() => handleCategoryFilter(item.category)} className="category">{item.category}</span>
                             </div>
-                            <button className="btn btn-action add-to-cart">Add to Cart</button>
+                            <button onClick={() => handleAddToCart(item.id)} className="btn btn-action add-to-cart">Add to Cart</button>
                         </div>   
                     )
                 })}

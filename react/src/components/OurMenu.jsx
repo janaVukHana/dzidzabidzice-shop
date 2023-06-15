@@ -25,7 +25,7 @@ export default function OurMenu() {
                 <NavLink to="/proizvodi" className='btn btn-action'>Kompletna ponuda</NavLink>
             </div>
             <div>
-                <img src="/hero.jpg" alt="" />
+                <img src="/image4.webp" alt="" />
             </div>
         </div>
     )

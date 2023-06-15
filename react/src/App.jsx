@@ -10,6 +10,7 @@ import Home from './views/Home'
 import Product from './views/Product'
 import Gallery from './views/Gallery'
 import Contact from './views/Contact'
+import ShoppingCartPage from './views/ShoppingCartPage'
 import Login from './views/Login'
 import NotFound from './views/NotFound'
 // Admin pages
@@ -47,6 +48,7 @@ function App() {
             <Route path="/proizvodi" element={<Product />} />
             <Route path="/galerija" element={<Gallery />} />
             <Route path="/kontakt" element={<Contact />} />
+            <Route path="/korpa" element={<ShoppingCartPage />} />
             <Route path="/brbrlogin" element={<Login />} />
 
             <Route path="/poruke" element={<Protected><Message /></Protected>} />

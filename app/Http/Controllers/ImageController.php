@@ -21,16 +21,10 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO: before storing image in database and folder gallery i want to
-        // validate that image is unique
-
         // MOZE I StoreProductRequest $request CLASS DA SE NAPRAVI kao CodeHolic
         $formData = $request->validate([
+            'image' => ['required', 'image', 'mimes:jpg,jpeg,png,webp'],
             'title' => ['required', 'max:10'],
-            // TODO: check later is one of this going to work!!!
-            // 'image' => ['required','mimes:jpg,jpeg,png'],
-            // 'image' => ['required', 'mimes:jpg,jpeg,png', 'mimetypes:image/jpeg,image/png'],
-            'image' => 'required',
             'rows' => ['min:1', 'max:2'],
             'cols' => ['min:1', 'max:2'],
         ]);
@@ -47,22 +41,6 @@ class ImageController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Image $image)
@@ -74,4 +52,5 @@ class ImageController extends Controller
         $image->delete();
         return response('', 204);
     }
+
 }

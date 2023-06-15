@@ -13,6 +13,8 @@ const StateContext = createContext({
     setShowMenu: () => {},
     products: null,
     setProducts: () => {},
+    cartItems: null,
+    setCartItems: () => {},
     // loading: null,
     // setLoading: () => {}
 })
@@ -25,6 +27,9 @@ export const ContextProvider = ({children}) => {
     const [notification, setNotification] = useState('')
     const [showMenu, setShowMenu] = useState(false)
     const [products, setProducts] = useState()
+    // const [cartItems, setCartItems] = useState(10)
+    const [cartItems, setCartItems] = useState([])
+
     // const [loading, setLoading] = useState(false)
 
     const setToken = (token) => {
@@ -63,6 +68,8 @@ export const ContextProvider = ({children}) => {
             setShowMenu,
             products,
             setProducts,
+            cartItems,
+            setCartItems
             // loading,
             // setLoading
         }}>
