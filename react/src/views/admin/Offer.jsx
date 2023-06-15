@@ -44,6 +44,7 @@ export default function Offer() {
                     <th>Image</th>
                     <th>Title</th>
                     <th>Price</th>
+                    <th>Category</th>
                     {/* Empty cell for edit button */}
                     <th></th>  
                     {/* Empty cell for delete button */}
@@ -56,7 +57,8 @@ export default function Offer() {
                     <tr key={i}>
                         <td><img src={'http://localhost:8000/images/products/'+product.image} alt={product.title} /></td>
                         <td>{product.title}</td>
-                        <td>${product.price}</td>
+                        <td>{Number(product.price)} rsd.</td>
+                        <td>{product.category}</td>
                         <td>
                         <Link to={'/ponuda/'+product.id} className='btn'>Edit</Link>
                         </td>

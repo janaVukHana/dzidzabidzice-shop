@@ -17,7 +17,6 @@ function srcset(image, size, rows = 1, cols = 1) {
       }&fit=crop&auto=format&dpr=2 2x`,
     };
   }
-
   
   export default function Gallery() {
 
@@ -35,6 +34,9 @@ function srcset(image, size, rows = 1, cols = 1) {
       axiosClient.get('/images')
               .then(({data}) => {
                   setImagesData(data.data)
+              })
+              .catch((err) => {
+                console.error('Error fetching images', error);
               })
     }, [])
 
