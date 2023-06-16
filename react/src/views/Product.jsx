@@ -41,7 +41,7 @@ export default function Product() {
         setCategory(null)
     }
 
-    const handleAddToCart = (id) => {
+    const handleAddToCart = (id, title, price, image) => {
 
         let isItemInCart = false
 
@@ -55,7 +55,7 @@ export default function Product() {
             
             if(isItemInCart) return prevVal;
             setNotification('Dodali ste proizvod u korpu.')
-            return [...prevVal, {id: id, quantity: 1}]        
+            return [...prevVal, {id: id, title: title, price:price, image: image, quantity: 1, subtotal:price}]        
         })
     }
 
@@ -102,7 +102,7 @@ export default function Product() {
                                 <p className="price">{Number(item.price)} rsd.</p>
                                 <span onClick={() => handleCategoryFilter(item.category)} className="category">{item.category}</span>
                             </div>
-                            <button onClick={() => handleAddToCart(item.id)} className="btn btn-action add-to-cart">Add to Cart</button>
+                            <button onClick={() => handleAddToCart(item.id, item.title, item.price, item.image)} className="btn btn-action add-to-cart">Add to Cart</button>
                         </div>   
                     )
                 })}

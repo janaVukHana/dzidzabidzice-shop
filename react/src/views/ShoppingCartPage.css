@@ -1,5 +1,84 @@
 .ShoppingCartPage {
-    color: red;
-    height: 500px;
-    background-color: yellow;
+    min-height: 100vh;
+}
+
+.ShoppingCartPage img {
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+}
+
+.ShoppingCartPage table {
+    border-collapse: collapse;
+}
+
+.ShoppingCartPage table tbody tr {
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.ShoppingCartPage td {
+    padding: 0.5rem 1rem;
+}
+
+.ShoppingCartPage input {
+    width: 40px;
+}
+
+.ShoppingCartPage .delete-text {
+    display: inline;
+}
+
+.ShoppingCartPage .delete-icon {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .ShoppingCartPage.section {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .ShoppingCartPage button {
+        padding: 0.2rem 1rem;
+    }
+    
+    .ShoppingCartPage img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .ShoppingCartPage td {
+        padding: 5px 5px;
+    }
+
+    .ShoppingCartPage .delete-text {
+        display: none;
+    }
+
+    .ShoppingCartPage .delete-icon {
+        font-size: 1rem;
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .ShoppingCartPage h1 {
+        font-size: 2rem;
+    }
+
+    .ShoppingCartPage {
+        font-size: 0.7rem;
+    }
+
+    .ShoppingCartPage img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .ShoppingCartPage button {
+        padding: 0.2rem 0.5rem;
+    }
+    
 }
