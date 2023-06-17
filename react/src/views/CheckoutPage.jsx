@@ -73,6 +73,7 @@ export default function CheckoutPage() {
     // On Submit
     const handleOrder = (formData) => {
         formData.date === undefined && console.log('its undefined');
+        console.log(formData);
         return;
 
         // Prepare data to send to the backend
@@ -180,6 +181,7 @@ export default function CheckoutPage() {
                                     render={({ field }) => (
                                     <DatePicker
                                         {...field}
+                                        disablePast
                                         label="Date"
                                         textFields={(params) => (
                                             <TextField
@@ -213,7 +215,6 @@ export default function CheckoutPage() {
                                 {...register('message', registerOptions.message)}
                             />
                         </div>
-                    
                         <button className='btn'>
                             Send Order
                         </button>
