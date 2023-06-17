@@ -16,7 +16,6 @@ const phoneStyles = {
     margin: 'auto',
     color: 'var(--action)',
     marginBottom: '1.5rem',
-
 }
 
 export default function Contact() {

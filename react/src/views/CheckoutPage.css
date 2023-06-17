@@ -1,0 +1,75 @@
+/* .CheckoutPage {
+    color: red;
+} */
+
+/* Target Date input field text error */
+/* TODO: border must be red */
+/* .MuiFormControl-root {
+    border: 1px solid red !important;
+} */
+.form-control span {
+    display: inline-block;
+    margin-left: 1rem;
+    color: red;
+  }
+
+.CheckoutPage .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.CheckoutPage .checkout-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.CheckoutPage .form-section {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid green;
+}
+
+.CheckoutPage .form-section:nth-child(2) {
+    flex: 1
+}
+
+.CheckoutPage  {
+    margin-bottom: 10px;
+}
+
+.CheckoutPage input,
+.CheckoutPage textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.CheckoutPage input[type="date"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    padding-right: 20px;
+}
+
+.CheckoutPage input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.CheckoutPage ul.cart-items {
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .CheckoutPage .checkout-form {
+        flex-direction: column;
+    }
+}
+
+

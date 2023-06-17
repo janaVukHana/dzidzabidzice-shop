@@ -11,6 +11,9 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@date-io/date-fns": "^2.16.0",
+        "@mui/lab": "^5.0.0-alpha.134",
+        "date-fns": "^2.30.0",
         "react-hook-form": "^7.44.3"
     }
 }
