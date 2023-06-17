@@ -1,6 +1,7 @@
 import './CheckoutPage.css'
 import { useStateContext } from '../contexts/ContextProvider';
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axiosClient from "../axios-client";
 import Spinner from '../components/Spinner'
@@ -15,15 +16,34 @@ import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 
 
+// TODO: when user place order, navigate to thank you page. On thank you page display message and clean cart.
+//       then after 5sec send user to home page maybe.
+// TODO: test date input. Enter just days, or/and months...
+// TODO: show spinner when sending data
 export default function CheckoutPage() {
     
-    const {register, handleSubmit, reset, watch, control, formState: { errors }} = useForm({mode: 'onChange'})
+    const {cartItems, setCartItems, setNotification} = useStateContext()
+    const navigate = useNavigate();
 
+    const calculateTotalPrice = () => {
+        let totalPrice = 0;
+        cartItems.forEach((item) => {
+          totalPrice += Number(item.subtotal);
+        });
+        return totalPrice;
+      };
+
+    const {register, handleSubmit, reset, watch, control, formState: { errors }} = useForm({mode: 'onChange'})
+    
     const [laravelErrors, setLaravelErrors] = useState(null)
     const [sending, setSending] = useState(false)
-    const {cartItems, setNotification} = useStateContext()
-
+    
     useEffect(() => {
+        // Redirect to another route if cartItems === 0
+        if(cartItems.length === 0) {
+            navigate('/proizvodi')
+        }
+        // Prevent scroll while sending data to api
         if(sending) {
             document.body.style.overflow = 'hidden'
         }
@@ -33,7 +53,7 @@ export default function CheckoutPage() {
     }, [sending])
 
     const registerOptions = {
-        fullName: {
+        full_name: {
             required: 'Obavezno polje.',
             minLength: {
                 value: 3,
@@ -47,12 +67,7 @@ export default function CheckoutPage() {
         phone: {required: 'Obavezno polje.'},
         email: {required: 'Obavezno polje.'},
         address: {required: 'Obavezno polje.'},
-        // date: {
-        //     required: 'Obavezno polje.',
-        //     validate: {
-        //         shouldHaveValue: (value) => !!value || 'Obavezno polje.',
-        //     }  
-        //   },
+        // date: {required: 'Obavezno polje.'},     NOT WORKING
         message: {
             required: 'Obavezno polje.',
             minLength: {
@@ -71,41 +86,25 @@ export default function CheckoutPage() {
     const handleError = (errors) => {}
 
     // On Submit
-    const handleOrder = (formData) => {
-        formData.date === undefined && console.log('its undefined');
-        console.log(formData);
-        return;
+    const handleOrder = async (formData) => {
+        formData.order = JSON.stringify(cartItems);
+        try {
+            setSending(true); // Set the sending state to true to show the spinner
+            const response = await axiosClient.post('/orders', formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data', // Make sure to set the content type as multipart/form-data
+                },
+              });
+              // Handle the response from the API, e.g., show a success notification
+              setNotification('Uspešno prosleđen zahtev.');
 
-        // Prepare data to send to the backend
-        const orderData = {
-            fullName,
-            address,
-            email,
-            phone,
-            date,
-            message,
-            cartItems,
-        };
-
-        // Send orderData to the Laravel backend using an HTTP request (e.g., fetch, axios)
-        // Example using fetch:
-        fetch('/api/orders', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(orderData),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                // Handle response from the backend
-                console.log('Order sent successfully:', data);
-                // Perform any additional actions as needed
-            })
-            .catch((error) => {
-                console.error('Error sending order:', error);
-                // Handle error condition
-            });
+              navigate('/')
+        } catch (error) {
+            // Handle any errors that occur during the API request, e.g., show error messages
+            setLaravelErrors(error.response?.data?.errors);
+        } finally {
+            setSending(false); // Set the sending state back to false to hide the spinner
+        }
     };
 
     return (
@@ -120,11 +119,11 @@ export default function CheckoutPage() {
                                 fullWidth
                                 variant="outlined"
                                 label="Ime i prezime"
-                                error={!!errors?.fullName}
-                                helperText={errors?.fullName && errors.fullName.message}
-                                id="fullName"
-                                name="fullName"
-                                {...register('fullName', registerOptions.fullName)}
+                                error={!!errors?.full_name}
+                                helperText={errors?.full_name && errors.full_name.message}
+                                id="full_name"
+                                name="full_name"
+                                {...register('full_name', registerOptions.full_name)}
                             />
                         </div>
 
@@ -170,19 +169,18 @@ export default function CheckoutPage() {
                             />
                         </div>
 
-                        {/* Here goes date picker no.1: On error text is red, border is not */}
                         <div className='form-control'>
                             <LocalizationProvider dateAdapter={AdapterDateFns}>
                                 <Controller
                                     name="date"
                                     control={control}
                                     defaultValue={null}
-                                    rules={{ required: 'Please pick a date' }}
+                                    rules={{ required: 'Izaberi datum dostave.' }}
                                     render={({ field }) => (
                                     <DatePicker
                                         {...field}
                                         disablePast
-                                        label="Date"
+                                        label="Datum dostave"
                                         textFields={(params) => (
                                             <TextField
                                                 {...params} 
@@ -223,9 +221,13 @@ export default function CheckoutPage() {
                         <h2>Cart Items</h2>
                         <ul className="cart-items">
                             {cartItems.map((item, index) => (
-                                <li key={index}>{item.title}</li>
+                                <li key={index}>
+                                    <h3>{item.title}</h3>
+                                    <p>{Number(item.price)} * {item.quantity} = {item.price * item.quantity}</p>
+                                </li>
                             ))}
                         </ul>
+                        <p>Ukupno: {calculateTotalPrice()} rsd</p>
                     </div>
                 </form>
             </div>

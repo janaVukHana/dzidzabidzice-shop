@@ -4,8 +4,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ImageController;
-use App\Http\Controllers\MessageController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
 });
 
+Route::post('/orders', [OrderController::class, 'store']);
 Route::get('/images', [ImageController::class, 'index']);
 Route::post('/message', [MessageController::class, 'store'])->name('message.store');
 Route::post('/login', [AuthController::class, 'login']);

@@ -3,15 +3,15 @@
 } */
 
 /* Target Date input field text error */
-/* TODO: border must be red */
-/* .MuiFormControl-root {
-    border: 1px solid red !important;
-} */
 .form-control span {
     display: inline-block;
     margin-left: 1rem;
-    color: red;
+    color: var(--danger);
   }
+
+.CheckoutPage h2 {
+    font-size: 2rem;
+}
 
 .CheckoutPage .container {
     max-width: 768px;
@@ -27,11 +27,12 @@
 .CheckoutPage .form-section {
     flex: 2;
     padding: 10px;
-    border: 1px solid green;
 }
 
 .CheckoutPage .form-section:nth-child(2) {
-    flex: 1
+    flex: 1;
+    background-color: #f0f0f0;
+    border-radius: 6px;
 }
 
 .CheckoutPage  {
@@ -64,6 +65,11 @@
 
 .CheckoutPage ul.cart-items {
     list-style: none;
+}
+
+.CheckoutPage ul li {
+    border-bottom: 1px solid #d8d8d8;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {

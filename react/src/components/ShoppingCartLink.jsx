@@ -10,7 +10,10 @@ export default function ShoppingCartLink() {
     return (
         <div className='ShoppingCartLink'>
             <span className='cartItems'>{cartItems.length}</span>
-            <Link to='/korpa'><ShoppingCartIcon /></Link>
+            {/* Cart is empty === prevent link to work */}
+            {cartItems.length === 0 && <Link to='#'><ShoppingCartIcon /></Link>}
+            {/* Cart is Not empty === link work */}
+            {cartItems.length > 0 && <Link to='/korpa'><ShoppingCartIcon /></Link>}
         </div>
     )
 }
