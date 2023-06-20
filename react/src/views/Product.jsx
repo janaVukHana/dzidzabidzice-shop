@@ -9,6 +9,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Spinner from '../components/Spinner'
 
 
 export default function Product() {
@@ -16,6 +17,8 @@ export default function Product() {
     const {products, setProducts, setCartItems, setNotification} = useStateContext()
 
     const [category, setCategory] = useState(sessionStorage.getItem('category'))
+
+    const [isLoading, setIsLoading] = useState(true)
 
     
     useEffect(() => {
@@ -28,6 +31,7 @@ export default function Product() {
             } else {
                 setProducts(data.data)
             }
+            setIsLoading(false)
         })
     }, [category])
     
@@ -107,6 +111,7 @@ export default function Product() {
                     )
                 })}
             </div>
+            {isLoading && <Spinner />}
         </div>
     )
 }

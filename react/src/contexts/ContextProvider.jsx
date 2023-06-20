@@ -27,7 +27,6 @@ export const ContextProvider = ({children}) => {
     const [notification, setNotification] = useState('')
     const [showMenu, setShowMenu] = useState(false)
     const [products, setProducts] = useState()
-    // const [cartItems, setCartItems] = useState(10)
     const [cartItems, setCartItems] = useState([])
 
     // const [loading, setLoading] = useState(false)
