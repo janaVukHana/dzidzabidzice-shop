@@ -9,7 +9,7 @@ use App\Http\Requests\StoreMessageRequest;
 
 class MessageController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      */
     public function index() {

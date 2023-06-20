@@ -19,6 +19,8 @@ import Message from './views/Message'
 import AdminGallery from './views/admin/Gallery'
 import Offer from './views/admin/Offer'
 import OfferForm from './views/admin/OfferForm'
+import Orders from './views/admin/Orders'
+import ShowOrder from './views/admin/ShowOrder'
 
 import ScrollToTop from './components/ScrollToTop'
 import Protected from './components/Protected'
@@ -58,6 +60,8 @@ function App() {
             <Route path="/ponuda" element={<Protected><Offer /></Protected>} />
             <Route path="/forma-ponuda" element={<Protected><OfferForm /></Protected>} />
             <Route path="/ponuda/:id" element={<Protected><OfferForm /></Protected>} />
+            <Route path="/porudzbine" element={<Protected><Orders /></Protected>} />
+            <Route path="/porudzbine/:id" element={<Protected><ShowOrder /></Protected>} />
             {/* TODO */}
             {/* Route /profil poruke ponuda slicice porudzbine */}
             {/* views Profile Message Offer Images Orders */}

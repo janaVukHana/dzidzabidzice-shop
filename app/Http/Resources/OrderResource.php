@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class OrderResource extends JsonResource
@@ -14,6 +15,8 @@ class OrderResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $order = json_decode($this->order, true);
+
         return [
             'id' => $this->id,
             'full_name' => $this->full_name,
@@ -21,9 +24,10 @@ class OrderResource extends JsonResource
             'phone' => $this->phone,
             'address' => $this->address,
             'message' => $this->message,
-            'date' => $this->date,
-            'order' => $this->order,
-            'created_at' => $this->created_at->format('Y-m-d H:i:s')
+            'date' => Carbon::parse($this->date)->format('d-m-Y'),
+            'order' => is_array($order) ? $order : [],
+            // 'created_at' => $this->created_at->format('Y-m-d H:i:s'),
+            'created_at' => $this->created_at->diffForHumans(),
         ];
     }
 }

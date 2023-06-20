@@ -57,6 +57,9 @@ class OfferController extends Controller
         return new OfferResource($product);
     }
 
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(Request $request, string $id)
     {
         $product = Offer::find($id);

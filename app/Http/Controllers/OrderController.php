@@ -12,9 +12,8 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index() {
+        return OrderResource::collection(Order::orderBy('id', 'desc')->get());
     }
 
     /**
@@ -47,7 +46,13 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $order = Order::find($id);
+
+        if (!$order) {
+            return response()->json(['order' => 'Order not found'], 404);
+        }
+
+        return new OrderResource($order);
     }
 
     /**
@@ -61,8 +66,12 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        return response('', 204);
+        // 204 === NO CONTENT, indicates that a request has succeeded, 
+        // but that the client doesn't need to navigate away from its current page
     }
 }
