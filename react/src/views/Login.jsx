@@ -34,6 +34,8 @@ export default function Login() {
         else {
             document.body.style.overflow = 'visible'
         }
+
+        return () => setSending(false)
     }, [sending])
 
     const registerOptions = {

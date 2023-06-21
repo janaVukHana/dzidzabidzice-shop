@@ -11,17 +11,40 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem'
 
 // TODO: better validation. 
-// Category have some issues. It show error on Change(until submit).
 // empty string is valid. Validate that.
 
 export default function OfferForm() {
+
+    const [laravelErrors, setLaravelErrors] = useState(null)
+    const [sending, setSending] = useState(false)
+    const {setNotification, setProducts} = useStateContext()
 
     const navigate = useNavigate()
     const { id } = useParams()
 
     const [product, setProduct] = useState(null)
 
+    const {register, handleSubmit, reset, watch, formState: { errors }, setValue} = useForm({
+      mode: 'onChange',
+      defaultValues: {
+        title: '',
+        description: '',
+        price: '',
+        category: 'kolaci',
+
+      }
+    })
+
     useEffect(() => {
+      // Hide scrollbar while sending 
+      if(sending) {
+          document.body.style.overflow = 'hidden'
+      }
+      else {
+          document.body.style.overflow = 'visible'
+      }
+      setValue('category', watch('category'))
+      // This will run on Edit
       if(id) {
         axiosClient.get('/products/'+id)
           .then(({data}) => {
@@ -38,7 +61,9 @@ export default function OfferForm() {
             setValue('category', category);
           })
       }
-    }, [])
+
+      return () => setSending(false)
+    }, [sending, watch, setValue])
 
     const [imagePreview, setImagePreview] = useState(null);
     const handleImageChange = (e) => {
@@ -51,33 +76,6 @@ export default function OfferForm() {
         setImagePreview(null);
       }
     };    
-
-    const {register, handleSubmit, reset, watch, formState: { errors }, setValue} = useForm({
-      mode: 'onChange',
-      defaultValues: {
-        title: '',
-        description: '',
-        price: '',
-        category: 'kolaci',
-
-      }
-    })
-
-    const [laravelErrors, setLaravelErrors] = useState(null)
-    const [sending, setSending] = useState(false)
-    const {setNotification, setProducts} = useStateContext()
-
-    // Hide scrollbar while communicatin with api
-    useEffect(() => {
-        if(sending) {
-            document.body.style.overflow = 'hidden'
-        }
-        else {
-            document.body.style.overflow = 'visible'
-        }
-
-        setValue('category', watch('category'));
-    }, [sending, watch, setValue])
 
     // FronEnd Validation
     const registerOptions = {

@@ -98,7 +98,7 @@ export default function CheckoutPage() {
               // Handle the response from the API, e.g., show a success notification
               setNotification('Uspešno prosleđen zahtev.');
 
-              navigate('/')
+              navigate('/hvala')
         } catch (error) {
             // Handle any errors that occur during the API request, e.g., show error messages
             setLaravelErrors(error.response?.data?.errors);
@@ -112,7 +112,7 @@ export default function CheckoutPage() {
             <div className="container">
                 <form onSubmit={handleSubmit(handleOrder, handleError)} className="checkout-form">
                     <div className="form-section">
-                        <h2>Contact Information</h2>
+                        <h2>Kontakt Informacije</h2>
 
                         <div className="form-control">
                             <TextField
@@ -213,15 +213,17 @@ export default function CheckoutPage() {
                                 {...register('message', registerOptions.message)}
                             />
                         </div>
+
                         <button className='btn'>
-                            Send Order
+                            Poruči
                         </button>
                     </div>
                     <div className="form-section">
-                        <h2>Cart Items</h2>
+                        <h2>Slatkiši</h2>
                         <ul className="cart-items">
                             {cartItems.map((item, index) => (
                                 <li key={index}>
+                                    <img src={'http://localhost:8000/images/products/'+item.image} alt={item.image} />
                                     <h3>{item.title}</h3>
                                     <p>{Number(item.price)} * {item.quantity} = {item.price * item.quantity}</p>
                                 </li>

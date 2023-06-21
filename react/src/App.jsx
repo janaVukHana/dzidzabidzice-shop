@@ -12,6 +12,7 @@ import Gallery from './views/Gallery'
 import Contact from './views/Contact'
 import ShoppingCartPage from './views/ShoppingCartPage'
 import CheckoutPage from './views/CheckoutPage'
+import ThankYou from './views/ThankYou'
 import Login from './views/Login'
 import NotFound from './views/NotFound'
 // Admin pages
@@ -53,6 +54,7 @@ function App() {
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/korpa" element={<ShoppingCartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/hvala" element={<ThankYou />} />
             <Route path="/brbrlogin" element={<Login />} />
 
             <Route path="/poruke" element={<Protected><Message /></Protected>} />

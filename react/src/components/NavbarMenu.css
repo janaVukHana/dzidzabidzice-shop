@@ -74,6 +74,7 @@ nav ul li a:hover,
   
       .NavbarMenu ul li a {
         display: block;
+        width: 30%;
       }
 
       .Navbar a:hover, .active {

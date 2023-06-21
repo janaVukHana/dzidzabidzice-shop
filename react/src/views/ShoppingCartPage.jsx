@@ -43,12 +43,12 @@ export default function ShoppingCartPage() {
                 <table>
                     <thead>
                     <tr>
-                        <th>Slika</th>
-                        <th>Proizvod</th>
+                        <th></th>
+                        <th>Slatkiš</th>
                         <th>Kolicina</th>
                         <th>Cena</th>
                         <th>Ukupno</th>
-                        <th>Actions</th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -78,14 +78,14 @@ export default function ShoppingCartPage() {
                     <tfoot>
                     <tr>
                         <td colSpan="4"></td>
-                        <td><strong>Ukupno:</strong></td>
+                        <td><strong>Ukupno za naplatu:</strong></td>
                         <td>{calculateTotalPrice()} rsd.</td>
                     </tr>
                     </tfoot>
                 </table>
                 
                 <br />
-                <Link to="/checkout" className='btn btn-action'>Proceed to Checkout</Link>
+                <Link to="/checkout" className='btn btn-action'>Dovrši porudžbinu</Link>
             </>
             }
   
