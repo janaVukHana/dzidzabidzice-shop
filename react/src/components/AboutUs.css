@@ -25,6 +25,11 @@
     color: #757575;
 }
 
+.AboutUs span {
+    color: var(--action);
+    font-weight: 700;
+}
+
 @media only screen and (max-width: 600px) {
     .AboutUs {
         flex-direction: column;

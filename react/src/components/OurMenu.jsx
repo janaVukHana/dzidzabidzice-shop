@@ -8,19 +8,19 @@ export default function OurMenu() {
                 <h2>U Ponudi</h2>
                 <h3>Torte</h3>
                 <p>
-                    Assortment of fresh baked fruit breads and muffins 5.50
+                    Otkrijte raznovrsne i ukusne torte za svačiji neodoljiv ukus.
                 </p>
                 <h3>Mafini</h3>
                 <p>
-                    Assortment of fresh baked fruit breads and muffins 5.50
+                    Isprobajte naše raznolike i ukusne mafine, savršene za svaku priliku.
                 </p>
                 <h3>Kolači</h3>
                 <p>
-                    Assortment of fresh baked fruit breads and muffins 5.50
+                    Uživajte u bogatstvu ukusa sočnih i primamljivih kolača.
                 </p>
                 <h3>Krofnice</h3>
                 <p>
-                    Assortment of fresh baked fruit breads and muffins 5.50
+                    Mekane krofnice sa šarenim prelivima će vas oduševiti svojom svežinom.
                 </p>
                 <NavLink to="/proizvodi" className='btn btn-action'>Kompletna ponuda</NavLink>
             </div>

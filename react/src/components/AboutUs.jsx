@@ -10,18 +10,24 @@ export default function AboutUs() {
                 <h2>Naša Priča</h2>
                 <h3>Nasleđe u razvoju od 2021</h3>
                 <p className='main-description'>
-                    The Catering was founded in blabla by Mr. Smith in lorem ipsum dolor sit amet, 
-                    consectetur adipiscing elit consectetur adipiscing elit, sed do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                     exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                      iruredolor in reprehenderit in voluptate 
-                    velit esse cillum dolore eu fugiat nulla pariatur.We only use seasonal ingredients.
+                    Dobrodošli na našu slatku oazu ukusa! Mi smo tim strastvenih majstora poslastica koji stvaraju 
+                    najukusnije torte, kolače, krofnice i mafine. Uzbuđeni smo što ćemo vas provesti kroz našu raznoliku 
+                    ponudu slatkiša koji će sigurno zadovoljiti vaše nepce i očarati vas svojim prefinjenim izgledom.
+                    <br />
+                    <br />
+                    Naša posvećenost kvalitetu i pažnji prema detaljima nas čini vodećim majstorima u svetu slatkiša. 
+                    Svaka torta, kolač, krofnica i mafin koje izrađujemo pravi su mali umetnički delići.
                 </p>
                 <p className='secondary-description'>
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-                    mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod temporincididunt 
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Bilo da slavite rođendan, venčanje ili bilo koju drugu posebnu priliku, naše torte će upotpuniti 
+                    vaš događaj magičnim ukusom i prelepim izgledom.
+                    <br />
+                    <br />
+                    Uz sve ovo, nudimo i personalizovane torte za posebne prilike. Možemo prilagoditi dizajn, ukus i 
+                    dekoraciju kako bi vaša torta bila jedinstvena i savršena za vašu proslavu.
+                    <br />
+                    <br />
+                    <span>Slatki zalogaji koji će vam izmamiti osmeh na lice.</span>
                 </p>
             </div>
         </div>
