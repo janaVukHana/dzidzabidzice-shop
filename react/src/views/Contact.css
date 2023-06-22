@@ -3,10 +3,6 @@
     margin-top: 55px;
 }
 
-.Contact h1 {
-  font-size: 1.4rem;
-}
-
 .Contact p {
   text-align: center;
   color: #757575;
@@ -19,7 +15,7 @@
 }
 
 .Contact .iconContainer {
-    display: flex;
+  display: flex;
     align-items: center;
     justify-content: center;
     width: 50px;
@@ -38,6 +34,10 @@
 /* Media Styles */
 /* small screens */
 @media only screen and (max-width: 600px) {
+  .Contact h1 {
+    font-size: 1.4rem;
+  }
+  
   .Contact.section {
     padding-left: 0;
     padding-right: 0;

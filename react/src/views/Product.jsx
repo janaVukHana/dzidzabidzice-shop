@@ -66,7 +66,6 @@ export default function Product() {
     return (
         <div className='Product section'>
             <h1><Divider component="div" role="presentation">Naši proizvodi</Divider></h1>
-            <h2>Heading with some longer text</h2>
 
             {/* Test filtering */}
             <Box sx={{ minWidth: 120, marginBottom: '20px' }}>

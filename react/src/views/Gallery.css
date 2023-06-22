@@ -13,9 +13,6 @@
     cursor: pointer;
 }
 
-.Gallery h1 {
-    font-size: 1.4rem;
-}
 
 .gallery-content {
     width: 95%;
@@ -35,6 +32,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .Gallery h1 {
+        font-size: 1.4rem;
+    }
+    
     .Gallery.section {
         padding-left: 0;
         padding-right: 0;

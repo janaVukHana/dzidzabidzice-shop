@@ -1,6 +1,7 @@
 .Hero {
     position: relative;
     height: 100vh;
+    max-height: 100vh;
     background-image: url('/resized_5.webp');
     background-position: center;
     background-size: cover;

@@ -5,6 +5,7 @@ import axiosClient from '../axios-client';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Spinner from '../components/Spinner';
+import Divider from '@mui/material/Divider'
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -42,7 +43,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 
     return (
         <div className='Gallery section'>
-            <h1>Galerija Torti, Kolača, Mafina i Krofnica</h1>
+            <h1><Divider component="div" role="presentation">Galerija</Divider></h1>
             <div className='gallery-content'>
               {!imagesData && <Spinner />}
               {imagesData && 
