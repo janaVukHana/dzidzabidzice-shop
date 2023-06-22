@@ -210,6 +210,16 @@ textarea:focus {
 .error {
   color: var(--danger);
 }
+
+/* @media styles  */
+
+@media only screen and (max-width: 600px) {
+  .section {
+    padding: 3rem .5rem;
+  }
+}
+
+
 /* 
 SOME OF DEFAULT REACT STYLES
 :root {

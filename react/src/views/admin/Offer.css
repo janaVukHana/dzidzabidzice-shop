@@ -10,16 +10,27 @@
   
   .Offer th, .Offer td {
     padding: 8px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
   }
   
   .Offer th:last-child, .Offer td:last-child {
     text-align: center;
-    width: 100px;
   }
 
   .Offer img {
     width: 60px;
     height: 60px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .Offer th, .Offer td {
+      padding: 2px;
+      font-size: 0.7rem;
+    }
+
+    .Offer .btn {
+      padding: 0.5rem;
+      font-size: .7rem;
+    }
   }
