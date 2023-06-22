@@ -11,7 +11,7 @@ import Modal from '@mui/material/Modal';
 
 function srcset(image, size, rows = 1, cols = 1) {
     return {
-      src: `http://localhost:8000/images/gallery/${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+      src: `http://api.mytesting.shop/images/gallery/${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
       srcSet: `${image}?w=${size * cols}&h=${
         size * rows
       }&fit=crop&auto=format&dpr=2 2x`,
