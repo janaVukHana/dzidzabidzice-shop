@@ -99,7 +99,9 @@ export default function Product() {
                     {/* DODO: make component and add key uuid */}
                     return (
                         <div key={index} className="card">
-                            <img src={'http://localhost:8000/images/products/'+item.image} alt="Card Image" />
+                            {/* This is for development */}
+                            {/* <img src={'http://localhost:8000/images/products/'+item.image} alt="Card Image" /> */}
+                            <img src={'http://api.mytesting.shop/images/products/'+item.image} alt="Card Image" />
                             <h3>{item.title}</h3>
                             <p className='description'>{item.description}</p>
                             <div className="details">

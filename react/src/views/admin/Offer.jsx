@@ -55,7 +55,8 @@ export default function Offer() {
                 {products && products.map((product, i) => {
                     return (
                     <tr key={i}>
-                        <td><img src={'http://localhost:8000/images/products/'+product.image} alt={product.title} /></td>
+                        {/* <td><img src={'http://localhost:8000/images/products/'+product.image} alt={product.title} /></td> */}
+                        <td><img src={'http://api.mytesting.shop/images/products/'+product.image} alt={product.title} /></td>
                         <td>{product.title}</td>
                         <td>{Number(product.price)} rsd.</td>
                         <td>{product.category}</td>

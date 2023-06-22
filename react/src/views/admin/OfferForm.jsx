@@ -203,7 +203,8 @@ export default function OfferForm() {
 
                     {imagePreview && <img src={imagePreview} alt="Preview" />}
                     {/* if Edit page show image if user did not choose image */}
-                    {!imagePreview && product && <img src={'http://localhost:8000/images/products/'+product.image} alt={product.title} />}
+                    {/* {!imagePreview && product && <img src={'http://localhost:8000/images/products/'+product.image} alt={product.title} />} */}
+                    {!imagePreview && product && <img src={'http://api.mytesting.shop/images/products/'+product.image} alt={product.title} />}
 
                     {errors?.image && <div style={{ color: 'red' }}>{errors.image.message}</div>}
                 </div>

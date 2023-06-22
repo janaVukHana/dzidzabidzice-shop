@@ -71,7 +71,8 @@ function srcset(image, size, rows = 1, cols = 1) {
               onClose={handleClose}
             >
               <Box className='modal'>
-                <img src={`http://localhost:8000/images/gallery/${selectedImage}`} alt="" /> {/* Show the selected image */}
+                {/* <img src={`http://localhost:8000/images/gallery/${selectedImage}`} alt="" /> Show the selected image */}
+                <img src={`http://api.mytesting.shop/images/gallery/${selectedImage}`} alt="" /> {/* Show the selected image */}
               </Box>
             </Modal>
 
