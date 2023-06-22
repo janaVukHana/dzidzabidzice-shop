@@ -1,3 +1,12 @@
 .SocialIcon {
-    color: purple;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.SocialIcon a:hover {
+    transform: scale(1.2);
 }
