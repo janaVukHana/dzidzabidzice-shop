@@ -2,6 +2,6 @@ import './NotFound.css'
 
 export default function NotFound() {
     return (
-        <h2 className='NotFound'>NotFound Component</h2>
+        <h2 className='NotFound'>Nepostojeća stranica</h2>
     )
 }

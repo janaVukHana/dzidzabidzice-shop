@@ -53,7 +53,7 @@ export default function Gallery() {
                 {images.map((image, i) => {
                     return (
                     <tr key={i}>
-                        <td><img src={`http://localhost:8000/images/gallery/${image.image}`} alt={image.title} /></td>
+                        <td><img src={`http://api.mytesting.shop/images/gallery/${image.image}`} alt={image.title} /></td>
                         <td>{image.title}</td>
                         <td>
                         <button onClick={() => handleDeleteImage(image.id)} className='btn btn-delete'>Delete</button>
