@@ -2,6 +2,7 @@ import './ShoppingCartPage.css'
 import {Link} from 'react-router-dom'
 import { useStateContext } from '../contexts/ContextProvider'
 import DeleteIcon from '@mui/icons-material/Delete';
+import Divider from '@mui/material/Divider';
 
 export default function ShoppingCartPage() {
 
@@ -34,7 +35,9 @@ export default function ShoppingCartPage() {
 
     return (
         <div className='ShoppingCartPage section'>
-            <h1>Tvoja korpa</h1>
+            <h1>
+                <Divider component="div" role="presentation">Korpa</Divider>
+            </h1>
 
             {cartItems.length === 0 && <p style={{textAlign: 'center'}}>Korpa je prazna. <Link to="/proizvodi" className="btn btn-sm">Nastavi kupovinu</Link></p>}
 

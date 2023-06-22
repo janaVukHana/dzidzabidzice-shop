@@ -1,9 +1,9 @@
 import './Gallery.css'
-import Divider from '@mui/material/Divider';
 import AddNewImageForm from '../../components/AddNewImageForm'
 import { useState, useEffect } from 'react';
 import axiosClient from '../../axios-client';
 import { useStateContext } from '../../contexts/ContextProvider';
+import Divider from '@mui/material/Divider';
 
 export default function Gallery() {
 
