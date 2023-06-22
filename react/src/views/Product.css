@@ -1,3 +1,7 @@
+  .Product {
+    margin-top: 55px;
+  }
+  
   .Product .filter {
     display: flex;
     /* justify-content: space-between; */
@@ -95,7 +99,7 @@
   
   @media (max-width: 600px) {
     .Product h1 {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
 
     .Product h2 {
