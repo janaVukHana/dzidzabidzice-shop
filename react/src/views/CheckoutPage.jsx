@@ -223,7 +223,8 @@ export default function CheckoutPage() {
                         <ul className="cart-items">
                             {cartItems.map((item, index) => (
                                 <li key={index}>
-                                    <img src={'http://localhost:8000/images/products/'+item.image} alt={item.image} />
+                                    {/* <img src={'http://localhost:8000/images/products/'+item.image} alt={item.image} /> */}
+                                    <img src={'http://api.mytesting.shop/images/products/'+item.image} alt={item.image} />
                                     <h3>{item.title}</h3>
                                     <p>{Number(item.price)} * {item.quantity} = {item.price * item.quantity}</p>
                                 </li>

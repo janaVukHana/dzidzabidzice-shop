@@ -55,7 +55,8 @@ export default function ShoppingCartPage() {
                     {cartItems.map((item, index) => {
                         return (
                             <tr key={item.id}>
-                                <td><img src={'http://localhost:8000/images/products/'+item.image} alt={item.title} /></td>
+                                {/* <td><img src={'http://localhost:8000/images/products/'+item.image} alt={item.title} /></td> */}
+                                <td><img src={'http://api.mytesting.shop/images/products/'+item.image} alt={item.title} /></td>
                                 <td>{item.title}</td>
                                 <td>
                                     <input 
