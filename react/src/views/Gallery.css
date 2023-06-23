@@ -27,7 +27,8 @@
     left: 50%;
     transform: translate(-50%,-50%);
     background-color: #fff;
-    width: 80%;
+    width: auto;
+    max-width: 80%;
     padding: 10px;
 }
 

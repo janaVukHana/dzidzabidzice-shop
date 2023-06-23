@@ -144,14 +144,14 @@ export default function Contact() {
                 <div className="form-control">
                     <TextField
                         fullWidth
+                        variant='outlined'
+                        label="Poruka"
                         error={!!errors?.message}
                         helperText={errors?.message && errors.message.message}
                         id="message"
                         name="message"
                         multiline
                         rows={4}
-                        variant='outlined'
-                        label="Poruka"
                         placeholder="Pošalji upit, Specijalni zahtev/porudžbinu, Slatku poruku..."
                         inputProps={{
                             style: {
