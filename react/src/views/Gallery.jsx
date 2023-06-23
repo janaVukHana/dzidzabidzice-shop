@@ -10,12 +10,12 @@ import Divider from '@mui/material/Divider'
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
-function srcset(image, size, rows = 1, cols = 1) {
+  function srcset(image, size, rows = 1, cols = 1) {
+    const width = size * cols;
+    const height = size * rows;
     return {
-      src: `https://api.mytesting.shop/images/gallery/${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
-      srcSet: `${image}?w=${size * cols}&h=${
-        size * rows
-      }&fit=crop&auto=format&dpr=2 2x`,
+      src: `https://api.mytesting.shop/images/gallery/${image}?w=${width}&h=${height}&fit=crop&auto=format`,
+      srcSet: `https://api.mytesting.shop/images/gallery/${image}?w=${width}&h=${height}&fit=crop&auto=format&dpr=2 2x`,
     };
   }
   
@@ -72,8 +72,8 @@ function srcset(image, size, rows = 1, cols = 1) {
               onClose={handleClose}
             >
               <Box className='modal'>
-                {/* <img src={`http://localhost:8000/images/gallery/${selectedImage}`} alt="" /> Show the selected image */}
-                <img src={`http://api.mytesting.shop/images/gallery/${selectedImage}`} alt="" /> {/* Show the selected image */}
+                {/* <img src={`https://localhost:8000/images/gallery/${selectedImage}`} alt="" /> Show the selected image */}
+                <img src={`https://api.mytesting.shop/images/gallery/${selectedImage}`} alt="" /> {/* Show the selected image */}
               </Box>
             </Modal>
 
