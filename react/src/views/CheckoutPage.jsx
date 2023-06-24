@@ -43,13 +43,7 @@ export default function CheckoutPage() {
         if(cartItems.length === 0) {
             navigate('/proizvodi')
         }
-        // Prevent scroll while sending data to api
-        if(sending) {
-            document.body.style.overflow = 'hidden'
-        }
-        else {
-            document.body.style.overflow = 'visible'
-        }
+       
     }, [sending])
 
     const registerOptions = {
@@ -234,6 +228,7 @@ export default function CheckoutPage() {
                     </div>
                 </form>
             </div>
+            {sending && <Spinner />}
         </div>
     );
 }

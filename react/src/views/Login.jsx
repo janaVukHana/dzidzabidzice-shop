@@ -28,14 +28,15 @@ export default function Login() {
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     useEffect(() => {
-        if(sending) {
-            document.body.style.overflow = 'hidden'
-        }
-        else {
-            document.body.style.overflow = 'visible'
-        }
+        // Nije potrebno. TODO: proveri pa izbrisi skroz
+        // if(sending) {
+        //     document.body.style.overflow = 'hidden'
+        // }
+        // else {
+        //     document.body.style.overflow = 'visible'
+        // }
 
-        return () => setSending(false)
+        // return () => setSending(false)
     }, [sending])
 
     const registerOptions = {
@@ -126,7 +127,6 @@ export default function Login() {
                 </div>
                 
                 <Button type="submit" fullWidth variant="contained">Log In</Button>
-                {sending && <Spinner />}
 
                 
                 {/* Laravel api errors object */}
@@ -134,6 +134,8 @@ export default function Login() {
                         return <div style={{color: 'red'}} key={index} className='error'>{err[0]}</div>
                     })}
             </form>
+            
+            {sending && <Spinner />}
         </div>
     )
 }
