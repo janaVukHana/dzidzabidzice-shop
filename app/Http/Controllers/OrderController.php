@@ -6,6 +6,9 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use App\Http\Resources\OrderResource;
+// Mail
+use App\Mail\OrderPlaced;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -36,6 +39,9 @@ class OrderController extends Controller
         $formData['date'] = $date->format('Y-m-d H:i:s');
 
         $newOrder = Order::create($formData);
+
+        // https://www.codersvibe.com/how-to-send-email-with-gmail-smtp-in-laravel
+        Mail::to('ilija009@gmail.com')->send(new OrderPlaced());
 
         return response(new OrderResource($newOrder), 201);
         // 201 == the request has succeeded and has led to the creation of a resource.
