@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axiosClient from "../../axios-client";
 import { useStateContext } from "../../contexts/ContextProvider";
 
+import Divider from '@mui/material/Divider';
 import Spinner from '../../components/Spinner'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -188,7 +189,7 @@ export default function OfferForm() {
     return (
         <div className='OfferForm section'>
         {/* TODO: don't show title while loading */}
-            <h1>{product ? `Edit: ${product.title}` : 'Dodaj proizvod'}</h1>
+            <h1><Divider component="div" role="presentation">{product ? `Edit: ${product.title}` : 'Dodaj proizvod'}</Divider></h1>
 
             <form className="form" onSubmit={handleSubmit(handleAddEditProduct, handleError)}>
             {/* input za dodavanje slike */}

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axiosClient from '../../axios-client'
 import {Link} from 'react-router-dom'
 
+import Divider from '@mui/material/Divider'
 import Spinner from '../../components/Spinner'
 import { useStateContext } from '../../contexts/ContextProvider'
 
@@ -41,14 +42,14 @@ export default function Orders() {
 
     return (
         <div className='Orders section'>
-            <h1>Porudzbine</h1>
+            <h1><Divider component="div" role="presentation">Porudžbine</Divider></h1>
 
             {!isLoading &&
                 <table>
                     <thead>
                     <tr>
-                        <th>From</th>
-                        <th>Created</th>
+                        <th>Poručio</th>
+                        <th>Datum</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -59,8 +60,8 @@ export default function Orders() {
                             <tr key={index}>
                                 <td>{order.full_name}</td>
                                 <td>{order.created_at}</td>
-                                <td><Link to={`/porudzbine/${order.id}`} className="btn btn-show">Show</Link></td>
-                                <td><button onClick={() => deleteOrder(order.id)} className="btn btn-delete">Delete</button></td>
+                                <td><Link to={`/porudzbine/${order.id}`} className="btn btn-show">Prikaži</Link></td>
+                                <td><button onClick={() => deleteOrder(order.id)} className="btn btn-delete">Izbriši</button></td>
                             </tr> 
                         )
                     })}

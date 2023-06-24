@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { useStateContext } from '../../contexts/ContextProvider'
 import axiosClient from '../../axios-client'
 
+import Divider from '@mui/material/Divider'
+
 export default function Offer() {
 
     const { products, setProducts, setNotification } = useStateContext()
@@ -34,17 +36,18 @@ export default function Offer() {
 
     return (
         <div className='Offer section'>
-            <h1>Ponuda by Brbra</h1>
+            <h1><Divider component="div" role="presentation">Ponuda by Baraba</Divider></h1>
+
             <Link to="/forma-ponuda" className='btn'>Dodaj proizvod</Link>
 
             {/* table with image i delete i edit i title i price*/}
             <table>
                 <thead>
                 <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Category</th>
+                    <th>Slika</th>
+                    <th>Naslov</th>
+                    <th>Cena</th>
+                    <th>Kategorija</th>
                     {/* Empty cell for edit button */}
                     <th></th>  
                     {/* Empty cell for delete button */}
@@ -61,10 +64,10 @@ export default function Offer() {
                         <td>{Number(product.price)} rsd.</td>
                         <td>{product.category}</td>
                         <td>
-                        <Link to={'/ponuda/'+product.id} className='btn'>Edit</Link>
+                        <Link to={'/ponuda/'+product.id} className='btn'>Promeni</Link>
                         </td>
                         <td>
-                        <button onClick={() => handleDeleteImage(product.id)} className='btn btn-delete'>Delete</button>
+                        <button onClick={() => handleDeleteImage(product.id)} className='btn btn-delete'>Izbriši</button>
                         </td>
                     </tr>
                     )

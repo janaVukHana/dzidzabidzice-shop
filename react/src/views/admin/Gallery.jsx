@@ -43,8 +43,8 @@ export default function Gallery() {
             <table>
                 <thead>
                 <tr>
-                    <th>Image</th>
-                    <th>Title</th>
+                    <th>Slika</th>
+                    <th>Naslov</th>
                     {/* // <!-- Empty cell for delete button --> */}
                     <th></th>  
                 </tr>
@@ -56,7 +56,7 @@ export default function Gallery() {
                         <td><img src={`http://api.mytesting.shop/images/gallery/${image.image}`} alt={image.title} /></td>
                         <td>{image.title}</td>
                         <td>
-                        <button onClick={() => handleDeleteImage(image.id)} className='btn btn-delete'>Delete</button>
+                        <button onClick={() => handleDeleteImage(image.id)} className='btn btn-delete'>Izbriši</button>
                         </td>
                     </tr>
                     )

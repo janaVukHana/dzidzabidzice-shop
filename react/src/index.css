@@ -36,6 +36,11 @@ body {
   /* font-family: 'Playfair Display', serif; */
 }
 
+main {
+  min-height: 100vh;
+  margin-top: 55px;
+}
+
 /* Typography */
 
 h1 {

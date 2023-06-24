@@ -118,7 +118,7 @@ export default function AddNewImageForm({onUpdate}) {
                     <TextField
                         fullWidth
                         variant="outlined"
-                        label="Title"
+                        label="Naslov"
                         error={!!errors?.title}
                         helperText={errors?.title && errors.title.message}
                         id="title"
@@ -131,7 +131,7 @@ export default function AddNewImageForm({onUpdate}) {
                     <TextField
                         fullWidth
                         variant="outlined"
-                        label="Cols"
+                        label="Kolone"
                         error={!!errors?.cols}
                         helperText={errors?.cols && errors.cols.message}
                         id="cols"
@@ -145,7 +145,7 @@ export default function AddNewImageForm({onUpdate}) {
                     <TextField
                         fullWidth
                         variant="outlined"
-                        label="Rows"
+                        label="Redovi"
                         error={!!errors?.rows}
                         helperText={errors?.rows && errors.rows.message}
                         id="rows"

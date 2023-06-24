@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import axiosClient from "../../axios-client";
 import Spinner from '../../components/Spinner';
 
+import Divider from '@mui/material/Divider'
+
 export default function ShowOrder() {
 
     const [order, setOrder] = useState(null)
@@ -29,16 +31,18 @@ export default function ShowOrder() {
         <div className='ShowOrder section'>
             {order && 
                 <div className="order">
-                    <h1>User Order</h1>
-                    <div className="order-header">Order Details</div>
+                    <h1><Divider component="div" role="presentation">Porudžbina</Divider></h1>
+
+
+                    <div className="order-header">Detalji porudžbine</div>
                     <div className="order-info">
-                    <p><strong>Full Name:</strong> {order.full_name}</p>
+                    <p><strong>Ime:</strong> {order.full_name}</p>
                     <p><strong>Email:</strong> {order.email}</p>
-                    <p><strong>Phone:</strong> {order.phone}</p>
-                    <p><strong>Address:</strong> {order.address}</p>
-                    <p><strong>Created:</strong> {order.created_at}</p>
-                    <p><strong>Order Date:</strong> {order.date}</p>
-                    <p><strong>Message:</strong> {order.message}</p>
+                    <p><strong>Telefon:</strong> {order.phone}</p>
+                    <p><strong>Adresa:</strong> {order.address}</p>
+                    <p><strong>Poslato:</strong> {order.created_at}</p>
+                    <p><strong>Datum dostave:</strong> {order.date}</p>
+                    <p><strong>Poruka:</strong> {order.message}</p>
                     <p><strong>Ukupno za naplatu:</strong> {calculateTotalPrice()} rsd.</p>
                     
                     </div>
