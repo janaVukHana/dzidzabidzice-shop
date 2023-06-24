@@ -26,9 +26,6 @@ import ShowOrder from './views/admin/ShowOrder'
 import ScrollToTop from './components/ScrollToTop'
 import Protected from './components/Protected'
 
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-
 function App() {
 
   const {notification, setNotification} = useStateContext()
@@ -80,25 +77,6 @@ function App() {
       </BrowserRouter>
       {notification && <p className='notification'>{notification}</p>}
 
-      {/* Show website info */}
-      <Modal
-          onClose={handleClose}
-          open={open}
-        >
-          <Box className='modal' style={{padding: '0.5rem 2rem', width: '80%'}}>
-            <div>
-              <h1>Sajt info</h1>
-              <p>Sajt Džidžabidžice je još uvek u procesu izrade.</p>
-              <p>Ukoliko želite možete se slobodno poigrati sa sajtom.</p>
-              <p><b>Takođe, svaka sugestija kao i predlog su dobrodošli.</b></p>
-
-              <p>
-                Da bi sajt koristili kao admin morate se ulogovati.<br />Adresa za 
-                logovanje je <b>https://mytesting.shop/brbrlogin</b><br /> Podaci za logovanje: <br /><b>email: </b>barbara@gmail.com<br /><b>šifra: </b>babara.501
-              </p>
-            </div>
-          </Box>
-        </Modal>
     </div>
   )
 }
