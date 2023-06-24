@@ -15,7 +15,6 @@ export default function ShowOrder() {
         axiosClient.get('/orders/'+id)
           .then(({data}) => {
             setOrder(data.data)
-            console.log(data.data);
     })
     }, [])
 
