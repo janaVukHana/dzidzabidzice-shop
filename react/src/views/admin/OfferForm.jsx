@@ -232,6 +232,8 @@ export default function OfferForm() {
                         helperText={errors?.description && errors.description.message}
                         id="description"
                         name="description"
+                        multiline
+                        rows={4}
                         value={watch('description')}
                         {...register('description', registerOptions.description)}
                     />
