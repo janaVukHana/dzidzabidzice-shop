@@ -2,6 +2,8 @@
     background-color: #fff;
     display: flex;
     gap: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .OurMenu div {
@@ -22,6 +24,8 @@
     color: #757575;
     margin-bottom: 1.5rem;
 }
+
+
 
 @media only screen and (max-width: 600px) {
     .OurMenu {

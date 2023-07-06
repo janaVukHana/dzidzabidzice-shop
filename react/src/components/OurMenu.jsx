@@ -22,7 +22,9 @@ export default function OurMenu() {
                 <p>
                     Mekane krofnice sa šarenim prelivima će vas oduševiti svojom svežinom.
                 </p>
-                <NavLink to="/proizvodi" className='btn btn-action'>Kompletna ponuda</NavLink>
+                <div className='flex'>
+                    <NavLink to="/proizvodi" className='btn btn-action'>Kompletna ponuda</NavLink>
+                </div>
             </div>
             <div>
                 <img src="/image4.webp" alt="" />
