@@ -8,19 +8,19 @@ export default function OurMenu() {
                 <h2>U Ponudi</h2>
                 <h3>Torte</h3>
                 <p>
-                    Otkrijte raznovrsne i ukusne torte za svačiji neodoljiv ukus.
+                    Izrada tradicionalnih torti na moderan način. Spoj lepog izgleda i još lepšeg ukusa.
                 </p>
                 <h3>Mafini</h3>
                 <p>
-                    Isprobajte naše raznolike i ukusne mafine, savršene za svaku priliku.
+                    Otkrijte naše mafine i mini mafine idealne za svaku priliku.
                 </p>
-                <h3>Kolači</h3>
+                <h3>Čokoladne torte iznenađenja</h3>
                 <p>
-                    Uživajte u bogatstvu ukusa sočnih i primamljivih kolača.
+                    Kreativan poklon kako za mališane, tako i za odrasle osobe.
                 </p>
                 <h3>Krofnice</h3>
                 <p>
-                    Mekane krofnice sa šarenim prelivima će vas oduševiti svojom svežinom.
+                    Uživajte u mekanim krofnicama, sa šarenom čokoladnom dekoracijom, koje će vas oduševiti
                 </p>
                 <div className='flex'>
                     <NavLink to="/proizvodi" className='btn btn-action'>Kompletna ponuda</NavLink>
